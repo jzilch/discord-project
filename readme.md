@@ -1,6 +1,7 @@
 # Understanding the basics of this Django project
 
 ### Follow these steps to be able to help develop this app:
+###	* Use Brew in place of apt-get on Mac Osx
 
 1. First we need to install our global dependencies.
 	- $ sudo apt-get install python-pip python-dev libpq-dev postgresql postgresql-contrib
