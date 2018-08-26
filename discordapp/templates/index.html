@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
-{%load static %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
 
 {% block head %}
+{% include 'head.html' %}
+{% endblock %}
 
+{% block header %}
+{% include 'headers/main_header.html' %}
 {% endblock %}
 
 {% block content %}
-Hello there!
+{% include 'assets/coming_soon_panel.html' %}
 {% endblock %}
