@@ -1,4 +1,6 @@
 dj-database-url==0.5.0
+django-bootstrap-ui==0.5.1
+django-bootstrap3==10.0.1
 Django==1.11.15
 psycopg2==2.7.5
 pycrypto==2.6.1
