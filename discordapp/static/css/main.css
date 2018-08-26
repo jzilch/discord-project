@@ -7,7 +7,8 @@ body {
     margin-top: 20%;
     margin-left: 35%;
 
-    box-shadow: 1px 1px 1px lightblue;
+    border-radius: 3px;
+    box-shadow: 4px 4px 9px lightblue;
     padding:10px;
 
     text-align: center;
