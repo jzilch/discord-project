@@ -2,6 +2,7 @@
 
 import os
 
+os.system("sudo pip install -r requirements.txt")
 print("Fetching upstream")
 os.system("git fetch upstream")
 print("Updating master with upstream changes")
