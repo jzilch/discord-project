@@ -1,0 +1,27 @@
+body {
+    background-color: #feffff;
+}
+
+.coming-soon-panel {
+    width: 30%;
+    margin-top: 20%;
+    margin-left: 35%;
+
+    border-radius: 3px;
+    box-shadow: 4px 4px 9px lightblue;
+    padding:10px;
+
+    text-align: center;
+}
+
+
+
+/* overrides above, for mobile phones */
+@media only screen and (max-width: 600px) {
+
+    .coming-soon-panel {
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 50%;
+    }
+}
