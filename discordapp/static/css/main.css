@@ -2,6 +2,7 @@ body {
     background-color: #feffff;
     color: #555;  /* match bootstrap styles */
     height: 100%;
+    font-family: 'Varela Round', sans-serif;
 }
 
 /* make text unselectable */
