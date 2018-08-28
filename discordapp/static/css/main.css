@@ -4,13 +4,6 @@ body {
     height: 100%;
 }
 
-/* when navbar reaches top of screen it sticks */
-.navbar-sticky {
-    position: sticky;
-    top: 0px;
-    z-index: 100;
-}
-
 .coming-soon-panel {
     width: 30%;
     margin-top: 10%;
@@ -26,6 +19,18 @@ body {
     margin-bottom: 800px;
 }
 
+/******************* INDEX
+    * headers
+    * footers
+    * specific page assets
+    * bootstrap overrides
+    * mobile responsive css
+*******************/
+
+
+/********* HEADERS *********/
+
+/* image at the top of the homepage */
 .header-image {
     background-image: url('../images/header_images/breath-of-the-wild.jpg');
     background-size: 100%;
@@ -35,7 +40,26 @@ body {
     background-repeat: no-repeat;
 }
 
-/***** bootstrap overrides *****/
+/* when navbar reaches top of screen it sticks */
+.navbar-sticky {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+/* see bootstrap overrides section for navbar css */
+
+
+/********* FOOTERS *********/
+
+/* main footer */
+.main-footer {
+
+}
+
+
+
+/********* BOOTSTRAP OVERRIDES *********/
 
 /* navbar css */
 .container-fluid {
@@ -61,7 +85,7 @@ body {
 }
 
 
-/***** for mobile phones *****/
+/********* FOR MOBILE PHONES *********/
 
 @media only screen and (max-width: 600px) {
 
@@ -73,7 +97,7 @@ body {
 
     /* change size of header image to fit image dimensions */
     .header-image {
-        height: 240px;
+        height: 230px;
     }
 
     /* revert to bootstrap standards (overriding overrides) */
