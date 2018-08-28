@@ -11,18 +11,40 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 from django.db import connection, transaction
 from discordapp.models import *
-
 import json
 
-# Create your views here.
 
+# render pages
 
 @csrf_protect
 def render_homepage(request):
 
     context = {
         "csrf": csrf,
-        "text": "butts",
+        "text": "test text",
     }
 
     return render(request, 'index.html', context)
+
+@csrf_protect
+def render_bios(request):
+    
+    context = {
+        "csrf": csrf,
+        "text": "test text",
+    }
+
+    return render(request, 'bios.html', context)
+
+@csrf_protect
+def render_content(request):
+
+    context = {
+        "csrf": csrf,
+        "text": "test text",
+    }
+
+    return render(request, 'content.html', context)
+
+
+# access database
