@@ -25,7 +25,7 @@ SECRET_KEY = '1zgu3==(21l04$kbfg13^o*510f01&6fjo0@fl)=@+o(v^y_(f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
