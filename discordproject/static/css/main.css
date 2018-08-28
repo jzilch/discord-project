@@ -1,0 +1,83 @@
+body {
+    background-color: #feffff;
+    color: #555;  /* match bootstrap styles */
+    height: 100%;
+}
+
+/* when navbar reaches top of screen it sticks */
+.navbar-sticky {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+.coming-soon-panel {
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 35%;
+
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px lightblue;
+    padding:10px;
+
+    text-align: center;
+
+    /* for debugging scroll stuff -- delete ASAP */
+    margin-bottom: 800px;
+}
+
+.header-image {
+    background-image: url('../images/header_images/breath-of-the-wild.jpg');
+    background-size: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/***** bootstrap overrides *****/
+
+/* navbar css */
+.container-fluid {
+    background-color: #feffff !important;
+}
+.navbar-default {
+    box-shadow: 2px 2px 6px lightblue;
+}
+.navbar-brand, .navbar-nav>li>a {
+    color: #555 !important;
+    /* border: 1px dotted red; */
+    height: 100%;
+    padding: 25px 40px !important;
+}
+.navbar-brand {
+    font-size: 1.3em;
+}
+.navbar-nav>li>a {
+    font-size: 1.1em;
+}
+.navbar-nav>li>a:hover {
+    background-color: lightblue !important;
+}
+
+
+/***** for mobile phones *****/
+
+@media only screen and (max-width: 600px) {
+
+    .coming-soon-panel {
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 20%;
+    }
+
+    /* change size of header image to fit image dimensions */
+    .header-image {
+        height: 240px;
+    }
+
+    /* revert to bootstrap standards (overriding overrides) */
+    .navbar-brand, .navbar-nav>li>a {
+        padding: 15px !important;
+    }
+}
