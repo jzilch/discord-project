@@ -6,3 +6,4 @@ gunicorn==19.9.0
 psycopg2==2.7.5
 pycrypto==2.6.1
 virtualenv==16.0.0
+whitenoise
