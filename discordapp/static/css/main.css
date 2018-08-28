@@ -4,21 +4,6 @@ body {
     height: 100%;
 }
 
-.coming-soon-panel {
-    width: 30%;
-    margin-top: 10%;
-    margin-left: 35%;
-
-    border-radius: 3px;
-    box-shadow: 2px 2px 6px lightblue;
-    padding:10px;
-
-    text-align: center;
-
-    /* for debugging scroll stuff -- delete ASAP */
-    margin-bottom: 800px;
-}
-
 /******************* INDEX
     * headers
     * footers
@@ -54,9 +39,15 @@ body {
 
 /* main footer */
 .main-footer {
-
+    height: 280px;
+    margin-top: 800px;
+    background-color: lightblue;
 }
-
+.footer-copyright-text {
+    position: relative;
+    top: 50%;
+    text-align: center;
+}
 
 
 /********* BOOTSTRAP OVERRIDES *********/
@@ -97,7 +88,7 @@ body {
 
     /* change size of header image to fit image dimensions */
     .header-image {
-        height: 230px;
+        height: 200px;
     }
 
     /* revert to bootstrap standards (overriding overrides) */
