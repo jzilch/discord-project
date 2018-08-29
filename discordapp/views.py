@@ -27,24 +27,24 @@ def render_homepage(request):
     return render(request, 'index.html', context)
 
 @csrf_protect
-def render_bios(request):
+def render_about_us(request):
     
     context = {
         "csrf": csrf,
         "text": "test text",
     }
 
-    return render(request, 'bios.html', context)
+    return render(request, 'about_us.html', context)
 
 @csrf_protect
-def render_content(request):
+def render_our_stuff(request):
 
     context = {
         "csrf": csrf,
         "text": "test text",
     }
 
-    return render(request, 'content.html', context)
+    return render(request, 'our_stuff.html', context)
 
 
 # access database

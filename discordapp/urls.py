@@ -9,6 +9,6 @@ from .views import *
 urlpatterns = [
     # navigational page rendering
     url('^$', render_homepage, name='index'),
-    url('^bios/$', render_bios, name='bios'),
-    url('^content/$', render_content, name='content'),
+    url('^aboutus/$', render_about_us, name='about_us'),
+    url('^ourstuff/$', render_our_stuff, name='our_stuff'),
 ]
