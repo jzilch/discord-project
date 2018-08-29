@@ -94,32 +94,17 @@ body {
 /****************** PAGE-SPECIFIC ASSETS ******************/
 
 
-
-
 /********* /about_us/ *********/
 
-/* for grid-container adjustments, see global section above */
+/* about_us.css
+ *      .about-us-grid
+ *      .bio-card
+ *      .bio-card-links
+ *      .bio-card-info-container
+ *      .bio-card-text
+ *      .bio-card-text-blur
+ */
 
-.about-us-grid {
-    padding: 0 8px;
-}
-
-/* bio cards */
-.bio-card {
-    border: 1px dotted red;
-    display: block;
-    position: relative;
-    margin: 16px;
-    width: calc(33.3% - 16px);
-    overflow: visible;
-    box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
-}
-.bio-card-image {
-
-}
-.bio-card-name {
-
-}
 
 
 /****************** BOOTSTRAP OVERRIDES ******************/
@@ -153,11 +138,13 @@ body {
 /* pretty much for all mobile devices except iPads (large screens) */
 @media only screen and (max-width: 600px) {
 
+
     /****************** GLOBAL ******************/
     
     .grid-container {
         grid-template-columns: auto;
     }
+
 
     /****************** HEADERS ******************/
 
@@ -166,22 +153,16 @@ body {
         height: 200px;
     }
 `
+
     /****************** FOOTERS ******************/
+
 
     /****************** PAGE-SPECIFIC ASSETS ******************/
 
     /********* /about_us/ *********/
 
-    .about-us-grid {
-        padding: 0 16px;
-    }
+    /* more can be found in about_us.css */
 
-    /* bio cards */
-    .bio-card {
-        border: 1px dotted red;
-        margin: 16px;
-        width: calc(33.3% - 16px);
-    }
 
     /****************** BOOTSTRAP OVERRIDES ******************/
 

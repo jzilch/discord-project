@@ -1,0 +1,143 @@
+/********* /about_us/ *********/
+
+/* for grid-container adjustments, see global section above */
+
+.about-us-grid {
+    padding: 0 16px;
+}
+
+/* bio cards */
+
+/* custom link stylings */
+.bio-card-links>a, .bio-card-links>a:hover, .bio-card-links>a:visited {
+    color: #b3ffff;
+    text-decoration: none;
+}
+
+.bio-card, .bio-card-text-blur {
+    background-image: url('../images/bio_images/david_maness_bio_image.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+/* this is the card itself */
+.bio-card {
+    /* organization */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    
+    /* styling */
+    background-position: center top;
+    height: 300px;  /* actual bio card height */
+    width: 300px;  /* actual bio card width */
+    border-radius: 5px;
+    box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
+
+    /* relation with other elements */
+    margin: 10px;
+}
+/* several pieces create the blurred effect of the bio info */
+/* jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box */
+.bio-card-info-container, .bio-card-text, .bio-card-text-blur {
+    /* needs to match .bio-card {border-radius}; */
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+/* contains the bio text and blur layer */
+.bio-card-info-container {
+    position: relative;
+    margin-top: auto;  /* sets info at bottom of card */
+    overflow: hidden;  /* keeps blur from "leaking */
+}
+/* contains bio text */
+.bio-card-text {
+    /* organization*/
+    position: relative;
+    overflow: hidden;
+    bottom: 0px;
+    z-index: 90;  /* top layer of card; below navbar */
+
+    /* sizing */
+    width: 100%;
+    height: 25%;
+
+    /* styling */
+    background: rgba(34,34,34,0.50);
+    font-size: 0.8em;
+    color: #fff;
+    text-align: center;
+    filter: blur('5px');
+
+    /* relation with other elements */
+}
+/* blur layer that lies between .bio-card-text and .bio-card */
+.bio-card-text-blur {
+    /* organization */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 89;
+
+    /* sizing */
+    width: 100%;
+    height: 100%;
+
+    /* styling */
+    background-position: center 100%;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+
+    /* relation with other elements */
+}
+
+
+/****************** RESPONSIVE CSS ******************/
+
+@media only screen and (max-width: 600px) {
+    .about-us-grid {
+        padding: 0 16px;
+    }
+
+    .bio-card {
+        /* organization and sizing */
+        border: 1px dotted red;
+        display: block;
+        position: relative;
+        overflow: visible;
+        
+        /* styling */
+        width: 100%;
+        height: auto;
+        box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
+
+        /* relation with other elements */
+        margin: 16px;
+        padding: 8px;
+    }
+    .bio-card-image {
+        display: block;
+        width: 100%;
+    }
+    .bio-card-info {
+        /* organization and sizing */
+        border: 1px dotted red;
+        position: absolute;
+        overflow: hidden;
+        bottom: 0;
+    
+        /* styling */
+        width: 100%;
+        height: auto;
+        color: #fff;
+    
+        /* relation with other elements */
+        padding: 8px;
+    }
+}
