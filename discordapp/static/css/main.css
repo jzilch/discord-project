@@ -1,3 +1,26 @@
+/* please excuse the mess
+ * this file is being worked on by three different people
+ * bellydrum, squideon, and wacky280
+ * started August 2018 by bellydrum
+ * index should help you find everything
+ * please only add css
+ * please don't reorganize or change the structure
+ * otherwise pay me back for the adderall it took
+ */
+
+
+/****************** INDEX
+    * global                (sitewide style settings)
+    * headers               (top of page)
+    * footers               (bottom of page)
+    * page-specific assets  (elements unique to certain pages)
+    * bootstrap overrides   (for making changes to default bootstrap settings)
+    * responsive css        (for mobile-specific styles)
+******************/
+
+
+/****************** GLOBAL ******************/
+
 body {
     background-color: #feffff;
     color: #555;  /* match bootstrap styles */
@@ -15,16 +38,22 @@ body {
     user-select: none;
 }
 
-/******************* INDEX
-    * headers
-    * footers
-    * specific page assets
-    * bootstrap overrides
-    * mobile responsive css
-*******************/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    border: 1px dotted blue;
+}
+
+.grid-item {
+    flex: 0 1 auto;
+}
 
 
-/********* HEADERS *********/
+/****************** HEADERS ******************/
 
 /* image at the top of the homepage */
 .header-image {
@@ -37,6 +66,7 @@ body {
 }
 
 /* when navbar reaches top of screen it sticks */
+/* TODO: seems to have trouble in Safari */
 .navbar-sticky {
     position: sticky;
     top: 0px;
@@ -46,7 +76,7 @@ body {
 /* see bootstrap overrides section for navbar css */
 
 
-/********* FOOTERS *********/
+/****************** FOOTERS ******************/
 
 /* main footer */
 .main-footer {
@@ -61,7 +91,38 @@ body {
 }
 
 
-/********* BOOTSTRAP OVERRIDES *********/
+/****************** PAGE-SPECIFIC ASSETS ******************/
+
+
+
+
+/********* /about_us/ *********/
+
+/* for grid-container adjustments, see global section above */
+
+.about-us-grid {
+    padding: 0 8px;
+}
+
+/* bio cards */
+.bio-card {
+    border: 1px dotted red;
+    display: block;
+    position: relative;
+    margin: 16px;
+    width: calc(33.3% - 16px);
+    overflow: visible;
+    box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
+}
+.bio-card-image {
+
+}
+.bio-card-name {
+
+}
+
+
+/****************** BOOTSTRAP OVERRIDES ******************/
 
 /* navbar css */
 .container-fluid {
@@ -87,20 +148,42 @@ body {
 }
 
 
-/********* FOR MOBILE PHONES *********/
+/****************** RESPONSIVE CSS ******************/
 
+/* pretty much for all mobile devices except iPads (large screens) */
 @media only screen and (max-width: 600px) {
 
-    .coming-soon-panel {
-        width: 60%;
-        margin-left: 20%;
-        margin-top: 20%;
+    /****************** GLOBAL ******************/
+    
+    .grid-container {
+        grid-template-columns: auto;
     }
+
+    /****************** HEADERS ******************/
 
     /* change size of header image to fit image dimensions */
     .header-image {
         height: 200px;
     }
+`
+    /****************** FOOTERS ******************/
+
+    /****************** PAGE-SPECIFIC ASSETS ******************/
+
+    /********* /about_us/ *********/
+
+    .about-us-grid {
+        padding: 0 16px;
+    }
+
+    /* bio cards */
+    .bio-card {
+        border: 1px dotted red;
+        margin: 16px;
+        width: calc(33.3% - 16px);
+    }
+
+    /****************** BOOTSTRAP OVERRIDES ******************/
 
     /* revert to bootstrap standards (overriding overrides) */
     .navbar-brand, .navbar-nav>li>a {
