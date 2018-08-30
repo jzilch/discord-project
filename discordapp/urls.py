@@ -11,4 +11,5 @@ urlpatterns = [
     url('^$', render_homepage, name='index'),
     url('^aboutus/$', render_about_us, name='about_us'),
     url('^ourstuff/$', render_our_stuff, name='our_stuff'),
+    url('^bio/$', render_bio, name='bio'),
 ]

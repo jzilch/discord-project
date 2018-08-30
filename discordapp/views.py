@@ -5,7 +5,7 @@ from django.core import serializers
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.template import RequestContext, Template
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
@@ -15,6 +15,15 @@ import json
 
 
 # render pages
+
+# error page
+
+@csrf_protect
+def render_error_page(request):
+
+    context = {}
+
+    return render(request, 'error.html', context)
 
 @csrf_protect
 def render_homepage(request):
@@ -45,7 +54,21 @@ def render_our_stuff(request):
         "text": "test text",
     }
 
-    return render(request, 'our_stuff.html', context)
+    return redirect(request, 'our_stuff.html', context)
+
+@csrf_protect
+def render_bio(request):
+
+    # if no member name is given from the request, return /about_us/
+    if not request.GET:
+        return redirect('about_us')
+
+    context = {
+        "csrf": csrf,
+        "text": "test text",
+    }
+
+    return render(request, 'bio.html', context)
 
 
 # access database
