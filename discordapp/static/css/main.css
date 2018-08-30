@@ -79,7 +79,6 @@ body {
 /* main footer */
 .main-footer {
     height: 280px;
-    margin-top: 800px;
     background-color: lightblue;
 }
 .footer-copyright-text {
@@ -110,6 +109,9 @@ body {
 /* navbar css */
 .container-fluid {
     background-color: #feffff !important;
+}
+.navbar {
+    margin-bottom: 100px !important;
 }
 .navbar-default {
     box-shadow: 2px 2px 6px lightblue;
@@ -166,6 +168,9 @@ body {
     /****************** BOOTSTRAP OVERRIDES ******************/
 
     /* revert to bootstrap standards (overriding overrides) */
+    .navbar {
+        margin-bottom: 60px !important;
+    }
     .navbar-brand, .navbar-nav>li>a {
         padding: 15px !important;
     }
