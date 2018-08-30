@@ -4,7 +4,8 @@
 {% block title %}Bios{% endblock %}
 
 {% block head %}
-{% include 'head.html' %}
+{% include 'heads/main_head.html' %}
+{% include 'heads/about_us_head.html' %}
 {% endblock %}
 
 {% block header %}
@@ -12,6 +13,25 @@
 {% endblock %}
 
 {% block content %}
+
+<div class='about-us-card'>
+    <div class='about-us-text'>SuperFam is a collective of friends based in the St. Louis area that are united by their passion for the Nintendo Switch and gaming at large.</div>
+</div>
+
+<!-- eventually, once we have everyone in the database, -->
+<!-- we'll pull all the users from there and -->
+<!-- render their data as templates -->
+<!-- until then each member will be hardcoded, which is fine too -->
+
+<div class='grid-container about-us-grid'>
+
+<!-- this is a temporary loop that pulls from views.py -->
+<!-- this will actually iterate over "member" data once we have data -->
+{% include 'assets/bio_card.html' %}
+
+
+</div>
+
 {% endblock %}
 
 {% block footer %}

@@ -1,0 +1,199 @@
+/********* /about_us/ *********/
+
+.about-us-card {
+    padding: 60px 0px;
+}
+.about-us-text {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+
+/* for grid-container adjustments, see global section above */
+
+.about-us-grid {
+    grid-template-columns: auto auto auto auto;
+    padding: 0 16px;
+}
+
+/* bio cards */
+
+/* custom link stylings */
+.bio-card-links>a, .bio-card-links>a:hover, .bio-card-links>a:visited {
+    color: #b3ffff;
+    text-decoration: none;
+}
+
+/* add images to bio cards */
+.bio-card-squideon, .bio-card-squideon .bio-card-text-blur {
+    background-image: url('../images/bio_images/squideon_bio_image.jpg');
+}
+.bio-card-stringer, .bio-card-stringer .bio-card-text-blur {
+    background-image: url('../images/bio_images/stringer_bio_image.jpg');
+}
+.bio-card-bellydrum, .bio-card-bellydrum .bio-card-text-blur {
+    background-image: url('../images/bio_images/bellydrum_bio_image.jpg');
+}
+.bio-card-wacky280, .bio-card-wacky280 .bio-card-text-blur {
+    background-image: url('../images/bio_images/wacky280_bio_image.jpg');
+}
+.bio-card-kennzoil, .bio-card-kennzoil .bio-card-text-blur {
+    background-image: url('../images/bio_images/kennzoil_bio_image.jpg');
+}
+
+.bio-card, .bio-card-text-blur {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    
+}
+/* this is the card itself */
+.bio-card {
+    /* organization */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    
+    /* styling */
+    background-position: center top;
+    height: 250px;  /* actual bio card height */
+    width: 250px;  /* actual bio card width */
+    border-radius: 5px;
+    box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
+
+    /* relation with other elements */
+    margin: 15px;
+
+}
+/* for "bumping" the bio card on hover */
+.bio-card:hover {
+    transform: translateY(-8px);
+    transition: 0.1s;
+    transition-timing-function: ease-in;
+}
+/* several pieces create the blurred effect of the bio info */
+/* jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box */
+.bio-card-info-container, .bio-card-text, .bio-card-text-blur {
+    /* needs to match .bio-card {border-radius}; */
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+/* contains the bio text and blur layer */
+.bio-card-info-container {
+    position: relative;
+    margin-top: auto;  /* sets info at bottom of card */
+    overflow: hidden;  /* keeps blur from "leaking */
+}
+/* contains bio text */
+.bio-card-text {
+    /* organization*/
+    position: relative;
+    overflow: hidden;
+    bottom: 0px;
+    z-index: 90;  /* top layer of card; below navbar */
+
+    /* sizing */
+    width: 100%;
+    height: 25%;
+
+    /* styling */
+    background: rgba(34,34,34,0.50);
+    font-size: 0.8em;
+    color: #fff;
+    text-align: center;
+    filter: blur('5px');
+
+    /* relation with other elements */
+}
+/* blur layer that lies between .bio-card-text and .bio-card */
+.bio-card-text-blur {
+    /* organization */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 89;
+
+    /* sizing */
+    width: 100%;
+    height: 100%;
+
+    /* styling */
+    background-position: center 100%;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+
+    /* relation with other elements */
+}
+
+
+/****************** RESPONSIVE CSS ******************/
+
+@media only screen and (max-width: 1100px) {
+    .about-us-grid {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .about-us-grid {
+        grid-template-columns: auto auto;
+    }
+    /* remove "bump" from bio cards on touchscreens */
+    .bio-card:hover {
+        transform: translateY(0px);
+        transition: 0.1s;
+        transition-timing-function: ease-in;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .about-us-grid {
+        grid-template-columns: auto;
+        padding: 0 16px;
+    }
+    /* remove rounded edges from bio cards */
+    .bio-card, .bio-card-info-container, .bio-card-text {
+        border-radius: 0;
+    }
+    /* actual bio cards */
+    .bio-card {
+        /* organization and sizing */
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        
+        /* styling */
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
+        border-radius: 5px;
+
+
+        /* relation with other elements */
+        margin: 30px 0px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bio-card-info-container {
+        /* organization and sizing */
+        position: relative;
+        overflow: hidden;
+    
+        /* styling */
+        width: 100%;
+        max-height: 100%;
+    }
+
+    /* remove blur layer, title, and links */
+    .bio-card-text-blur, .bio-card-title, .bio-card-links {
+        display: none;
+    }
+}

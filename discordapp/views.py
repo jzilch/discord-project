@@ -32,6 +32,7 @@ def render_about_us(request):
     context = {
         "csrf": csrf,
         "text": "test text",
+        "number_of_cards": 1,
     }
 
     return render(request, 'about_us.html', context)
