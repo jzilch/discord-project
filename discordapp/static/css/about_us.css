@@ -1,5 +1,14 @@
 /********* /about_us/ *********/
 
+.about-us-card {
+    padding: 55px 0px;
+}
+.about-us-text {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+
 /* for grid-container adjustments, see global section above */
 
 .about-us-grid {
