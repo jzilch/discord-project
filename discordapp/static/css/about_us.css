@@ -1,8 +1,5 @@
 /********* /about_us/ *********/
 
-.about-us-card {
-    padding: 60px 0px;
-}
 .about-us-text {
     width: 70%;
     margin-left: 15%;
@@ -13,7 +10,7 @@
 
 .about-us-grid {
     grid-template-columns: auto auto auto auto;
-    padding: 0 16px;
+    padding: 80px 16px 120px;
 }
 
 /* bio cards */
@@ -155,7 +152,7 @@
 @media only screen and (max-width: 600px) {
     .about-us-grid {
         grid-template-columns: auto;
-        padding: 0 16px;
+        padding: 40px 16px 60px !important;
     }
     /* remove rounded edges from bio cards */
     .bio-card, .bio-card-info-container, .bio-card-text {
@@ -177,7 +174,7 @@
 
 
         /* relation with other elements */
-        margin: 30px 0px;
+        margin: 20px 0px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
