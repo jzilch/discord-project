@@ -15,12 +15,6 @@
 
 /* bio cards */
 
-/* custom link stylings */
-.bio-card-links>a, .bio-card-links>a:hover, .bio-card-links>a:visited {
-    color: #b3ffff;
-    text-decoration: none;
-}
-
 /* add images to bio cards */
 .bio-card-squideon, .bio-card-squideon .bio-card-text-blur {
     background-image: url('../images/bio_images/squideon_bio_image.jpg');
@@ -190,7 +184,7 @@
     }
 
     /* remove blur layer, title, and links */
-    .bio-card-text-blur, .bio-card-title, .bio-card-links {
+    .bio-card-text-blur, .bio-card-title {
         display: none;
     }
 }

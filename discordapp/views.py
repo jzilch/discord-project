@@ -47,6 +47,31 @@ def render_about_us(request):
     return render(request, 'about_us.html', context)
 
 @csrf_protect
+def render_about_member(request, member_name):
+
+    # TODO: this is a temporary measure.
+    # In prod, this will assert that member_name is in the db
+    # or else reroute to /about/
+    members = [
+        'squideon',
+        'stringer',
+        'bellydrum',
+        'wacky280',
+        'kennzoil',
+    ]
+    if member_name not in members:
+        return redirect('about_us')
+
+
+    # gather data to send to about_member page
+    context = {
+        "csrf": csrf,
+        "text": "test text",
+    }
+
+    return render(request, 'about_member.html', context)
+
+@csrf_protect
 def render_our_stuff(request):
 
     context = {
@@ -54,21 +79,7 @@ def render_our_stuff(request):
         "text": "test text",
     }
 
-    return redirect(request, 'our_stuff.html', context)
-
-@csrf_protect
-def render_bio(request):
-
-    # if no member name is given from the request, return /about_us/
-    if not request.GET:
-        return redirect('about_us')
-
-    context = {
-        "csrf": csrf,
-        "text": "test text",
-    }
-
-    return render(request, 'bio.html', context)
+    return render(request, 'our_stuff.html', context)
 
 
 # access database
