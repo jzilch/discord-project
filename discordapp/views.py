@@ -67,6 +67,7 @@ def render_about_member(request, member_name):
     context = {
         "csrf": csrf,
         "text": "test text",
+        "member_name": member_name,
     }
 
     return render(request, 'about_member.html', context)
