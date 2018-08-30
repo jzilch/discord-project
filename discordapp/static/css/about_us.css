@@ -36,6 +36,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
+    
 }
 /* this is the card itself */
 .bio-card {
@@ -53,7 +54,14 @@
     box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
 
     /* relation with other elements */
-    margin: 10px;
+    margin: 15px;
+
+}
+/* for "bumping" the bio card on hover */
+.bio-card:hover {
+    transform: translateY(-8px);
+    transition: 0.1s;
+    transition-timing-function: ease-in;
 }
 /* several pieces create the blurred effect of the bio info */
 /* jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box */
@@ -126,6 +134,12 @@
 @media only screen and (max-width: 830px) {
     .about-us-grid {
         grid-template-columns: auto auto;
+    }
+    /* remove "bump" from bio cards on touchscreens */
+    .bio-card:hover {
+        transform: translateY(0px);
+        transition: 0.1s;
+        transition-timing-function: ease-in;
     }
 }
 
