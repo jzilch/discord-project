@@ -1,7 +1,7 @@
 /********* /about_us/ *********/
 
 .about-us-card {
-    padding: 55px 0px;
+    padding: 60px 0px;
 }
 .about-us-text {
     width: 70%;
@@ -157,40 +157,43 @@
         grid-template-columns: auto;
         padding: 0 16px;
     }
-
+    /* remove rounded edges from bio cards */
+    .bio-card, .bio-card-info-container, .bio-card-text {
+        border-radius: 0;
+    }
+    /* actual bio cards */
     .bio-card {
         /* organization and sizing */
-        border: 1px dotted red;
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: relative;
-        overflow: visible;
+        overflow: hidden;
         
         /* styling */
-        width: 100%;
-        height: auto;
+        width: 150px;
+        height: 150px;
         box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
+        border-radius: 5px;
+
 
         /* relation with other elements */
-        margin: 16px;
-        padding: 8px;
+        margin: 30px 0px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
-    .bio-card-image {
-        display: block;
-        width: 100%;
-    }
-    .bio-card-info {
+    .bio-card-info-container {
         /* organization and sizing */
-        border: 1px dotted red;
-        position: absolute;
+        position: relative;
         overflow: hidden;
-        bottom: 0;
     
         /* styling */
         width: 100%;
-        height: auto;
-        color: #fff;
-    
-        /* relation with other elements */
-        padding: 8px;
+        max-height: 100%;
+    }
+
+    /* remove blur layer, title, and links */
+    .bio-card-text-blur, .bio-card-title, .bio-card-links {
+        display: none;
     }
 }
