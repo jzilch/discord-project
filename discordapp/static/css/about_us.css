@@ -3,6 +3,7 @@
 /* for grid-container adjustments, see global section above */
 
 .about-us-grid {
+    grid-template-columns: auto auto auto auto;
     padding: 0 16px;
 }
 
@@ -46,8 +47,8 @@
     
     /* styling */
     background-position: center top;
-    height: 300px;  /* actual bio card height */
-    width: 300px;  /* actual bio card width */
+    height: 250px;  /* actual bio card height */
+    width: 250px;  /* actual bio card width */
     border-radius: 5px;
     box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
 
@@ -116,8 +117,21 @@
 
 /****************** RESPONSIVE CSS ******************/
 
+@media only screen and (max-width: 1100px) {
+    .about-us-grid {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .about-us-grid {
+        grid-template-columns: auto auto;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .about-us-grid {
+        grid-template-columns: auto;
         padding: 0 16px;
     }
 
