@@ -2,7 +2,7 @@
 
 {% for member in members %}
 <!-- template for bio cards on the /aboutus/ page -->
-<a href="{% url 'about_member' member.username %}">
+<a class="bio-card-anchor" href="{% url 'about_member' member.username %}">
     <!-- these background-image filepaths must be hardcoded -->
     <!-- this will break if bio_card.html or any of the bio_image files are moved -->
     <div class='bio-card bio-card-{{ member.username }}' style="background-image: url('../../static/images/bio_images/{{ member.username }}_bio_image.jpg')">

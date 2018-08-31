@@ -21,6 +21,9 @@
     background-size: 100%;
     
 }
+.bio-card-anchor:hover {
+    text-decoration: none;  /* remove underline from text in bio cards when hovering */
+}
 /* this is the card itself */
 .bio-card {
     /* organization */
