@@ -3,9 +3,11 @@
 {% for member in members %}
 <!-- template for bio cards on the /aboutus/ page -->
 <a href="{% url 'about_member' member.username %}">
-    <div class='bio-card bio-card-{{ member.username }}'>
+    <!-- these background-image filepaths must be hardcoded -->
+    <!-- this will break if bio_card.html or any of the bio_image files are moved -->
+    <div class='bio-card bio-card-{{ member.username }}' style="background-image: url('../../static/images/bio_images/{{ member.username }}_bio_image.jpg')">
         <div class='bio-card-info-container'>
-            <div class='bio-card-text-blur'></div>
+            <div class='bio-card-text-blur' style="background-image: url('../../static/images/bio_images/{{ member.username }}_bio_image.jpg')"></div>
             <div class="bio-card-text">
                 <h5>{{ member.username }}</h5>
                 <p class="bio-card-title">{{ member.role }}</p>

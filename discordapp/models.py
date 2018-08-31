@@ -49,8 +49,7 @@ class Member(models.Model):
         blank=False,
         null=False
     )
-    age = models.PositiveSmallIntegerField()
-    birthday = models.DateTimeField(
+    birthday = models.DateField(
         blank=True,
         null=True
     )

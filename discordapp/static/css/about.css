@@ -15,23 +15,6 @@
 
 /* bio cards */
 
-/* add images to bio cards */
-.bio-card-squideon, .bio-card-squideon .bio-card-text-blur {
-    background-image: url('../images/bio_images/squideon_bio_image.jpg');
-}
-.bio-card-stringer, .bio-card-stringer .bio-card-text-blur {
-    background-image: url('../images/bio_images/stringer_bio_image.jpg');
-}
-.bio-card-bellydrum, .bio-card-bellydrum .bio-card-text-blur {
-    background-image: url('../images/bio_images/bellydrum_bio_image.jpg');
-}
-.bio-card-wacky280, .bio-card-wacky280 .bio-card-text-blur {
-    background-image: url('../images/bio_images/wacky280_bio_image.jpg');
-}
-.bio-card-kennzoil, .bio-card-kennzoil .bio-card-text-blur {
-    background-image: url('../images/bio_images/kennzoil_bio_image.jpg');
-}
-
 .bio-card, .bio-card-text-blur {
     background-repeat: no-repeat;
     background-position: center;
