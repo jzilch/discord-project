@@ -19,11 +19,26 @@ class PokemonTeam(models.Model):
 # url links to a Members social media pages
 class SocialMedia(models.Model):
     social_media_id = models.AutoField(primary_key=True)
-    youtube_url = models.TextField()
-    twitter_url = models.TextField()
-    twitch_url = models.TextField()
-    soundcloud_url = models.TextField()
-    favorite_switch_clip = models.TextField()
+    youtube_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    twitter_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    twitch_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    soundcloud_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    favorite_switch_clip = models.TextField(
+        blank=True,
+        null=True
+    )
 
     class Meta:
         db_table = 'social_media'
