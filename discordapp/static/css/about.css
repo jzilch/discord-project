@@ -144,11 +144,10 @@
         overflow: hidden;
         
         /* styling */
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
         border-radius: 5px;
-
 
         /* relation with other elements */
         margin: 20px 0px;
