@@ -10,7 +10,7 @@ from django.template import RequestContext, Template
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 from django.db import connection, transaction
-from discordapp.models import *
+from discordapp.api import *
 import json
 
 
@@ -38,8 +38,8 @@ def render_homepage(request):
 @csrf_protect
 def render_about(request):
 
-    members = Member.objects.all()
-    
+    members = get_members()
+
     context = {
         "csrf": csrf,
         "members": members
