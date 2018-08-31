@@ -25,12 +25,7 @@ SECRET_KEY = '1zgu3==(21l04$kbfg13^o*510f01&6fjo0@fl)=@+o(v^y_(f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '.herokuapp.com',
-    'thesuperfam.com',
-    'www.thesuperfam.com',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -91,7 +86,7 @@ WSGI_APPLICATION = 'discordproject.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'discord-project-db',
+#         'NAME': 'superfam',
 #     }
 # }
 
