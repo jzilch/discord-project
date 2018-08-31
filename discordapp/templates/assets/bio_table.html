@@ -1,0 +1,11 @@
+{% load static %}
+
+Username: {{ member.username }}<br>
+First Name: {{ member.firstname }}<br>
+Last Name: {{ member.lastname }}<br>
+{% if member.birthday %}
+    Birthday: {{ member.birthday|date:'F d' }}<br>
+{% endif %}
+Role: {{ member.role }}<br>
+Favorite Nintendo Series: {{ member.favorite_nintendo_series }}<br>
+Favorite Non-tendo Series: {{ member.favorite_non_nintendo_series }}<br>

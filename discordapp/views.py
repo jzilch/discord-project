@@ -5,16 +5,25 @@ from django.core import serializers
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.template import RequestContext, Template
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 from django.db import connection, transaction
-from discordapp.models import *
+from discordapp.api import *
 import json
 
 
 # render pages
+
+# error page
+
+@csrf_protect
+def render_error_page(request):
+
+    context = {}
+
+    return render(request, 'error.html', context)
 
 @csrf_protect
 def render_homepage(request):
@@ -27,15 +36,33 @@ def render_homepage(request):
     return render(request, 'index.html', context)
 
 @csrf_protect
-def render_about_us(request):
-    
+def render_about(request):
+
+    members = get_members()
+
     context = {
         "csrf": csrf,
-        "text": "test text",
-        "number_of_cards": 1,
+        "members": members
     }
 
-    return render(request, 'about_us.html', context)
+    return render(request, 'about.html', context)
+
+@csrf_protect
+def render_about_member(request, member_name):
+
+    # ensure given member username exists in the database
+    member = Member.objects.filter(username__iexact=member_name)
+    if not member:
+        return redirect('about')
+    member = member[0]  # member always contains one result because username is distinct
+
+    # gather data to send to about_member page
+    context = {
+        "csrf": csrf,
+        "member": member,
+    }
+
+    return render(request, 'about_member.html', context)
 
 @csrf_protect
 def render_our_stuff(request):

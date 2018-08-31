@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About {{ member.username }}{% endblock %}
+
+{% block head %}
+{% include 'heads/main_head.html' %}
+{% endblock %}
+
+{% block header %}
+{% include 'headers/main_header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    {% include 'assets/bio_table.html' %}
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include 'footers/main_footer.html' %}
+{% endblock %}

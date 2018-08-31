@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About us{% endblock %}
+
+{% block head %}
+{% include 'heads/main_head.html' %}
+{% include 'heads/about_head.html' %}
+{% endblock %}
+
+{% block header %}
+{% include 'headers/main_header.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class='about-us-card'>
+    <div class='about-us-text'>
+        <p>SuperFam is a collective of gamers based in the St. Louis area that are united by their passion for Nintendo.</p>
+        <p>Here are the SuperFam content creators.</p>
+    </div>
+</div>
+
+<div class='grid-container about-us-grid'>
+{% for member in members %}
+    {% include 'assets/bio_card.html' %}
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include 'footers/main_footer.html' %}
+{% endblock %}

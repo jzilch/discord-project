@@ -1,5 +1,8 @@
-/********* /about_us/ *********/
+/********* /about/ *********/
 
+.about-us-card {
+    margin-bottom: 80px;
+}
 .about-us-text {
     width: 70%;
     margin-left: 15%;
@@ -10,39 +13,19 @@
 
 .about-us-grid {
     grid-template-columns: auto auto auto auto;
-    padding: 80px 16px 120px;
+    padding: 0px 16px;
 }
 
 /* bio cards */
-
-/* custom link stylings */
-.bio-card-links>a, .bio-card-links>a:hover, .bio-card-links>a:visited {
-    color: #b3ffff;
-    text-decoration: none;
-}
-
-/* add images to bio cards */
-.bio-card-squideon, .bio-card-squideon .bio-card-text-blur {
-    background-image: url('../images/bio_images/squideon_bio_image.jpg');
-}
-.bio-card-stringer, .bio-card-stringer .bio-card-text-blur {
-    background-image: url('../images/bio_images/stringer_bio_image.jpg');
-}
-.bio-card-bellydrum, .bio-card-bellydrum .bio-card-text-blur {
-    background-image: url('../images/bio_images/bellydrum_bio_image.jpg');
-}
-.bio-card-wacky280, .bio-card-wacky280 .bio-card-text-blur {
-    background-image: url('../images/bio_images/wacky280_bio_image.jpg');
-}
-.bio-card-kennzoil, .bio-card-kennzoil .bio-card-text-blur {
-    background-image: url('../images/bio_images/kennzoil_bio_image.jpg');
-}
 
 .bio-card, .bio-card-text-blur {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
     
+}
+.bio-card-anchor:hover {
+    text-decoration: none;  /* remove underline from text in bio cards when hovering */
 }
 /* this is the card itself */
 .bio-card {
@@ -150,9 +133,11 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .about-us-card {
+        margin-bottom: 60px;
+    }
     .about-us-grid {
         grid-template-columns: auto;
-        padding: 40px 16px 60px !important;
     }
     /* remove rounded edges from bio cards */
     .bio-card, .bio-card-info-container, .bio-card-text {
@@ -167,14 +152,13 @@
         overflow: hidden;
         
         /* styling */
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         box-shadow: 0 10px 60px rgba(34, 44, 50, .05);
         border-radius: 5px;
 
-
         /* relation with other elements */
-        margin: 20px 0px;
+        margin: 0px 0px 40px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -190,7 +174,14 @@
     }
 
     /* remove blur layer, title, and links */
-    .bio-card-text-blur, .bio-card-title, .bio-card-links {
+    .bio-card-text-blur, .bio-card-title {
         display: none;
+    }
+}
+/* for idiots who try and squish the screen really small on chrome */
+@media only screen and (max-width: 240px) {
+    .bio-card {
+        width: 120px;
+        height: 120px;
     }
 }
