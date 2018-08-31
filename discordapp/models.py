@@ -82,7 +82,7 @@ class Member(models.Model):
         blank=True,
         null=True
     )
-    pokemon_team = models.ForeignKey(
+    pokemon_team_id = models.ForeignKey(
         PokemonTeam,
         db_column='pokemon_team_id',
         blank=True,
@@ -90,7 +90,7 @@ class Member(models.Model):
         db_index=True,
         on_delete=models.PROTECT
     )
-    social_media = models.ForeignKey(
+    social_media_id = models.ForeignKey(
         SocialMedia,
         db_column='social_media_id',
         blank=True,
