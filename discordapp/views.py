@@ -36,40 +36,30 @@ def render_homepage(request):
     return render(request, 'index.html', context)
 
 @csrf_protect
-def render_about_us(request):
+def render_about(request):
 
     members = Member.objects.all()
     
     context = {
         "csrf": csrf,
-        "text": "test text",
         "members": members
     }
 
-    return render(request, 'about_us.html', context)
+    return render(request, 'about.html', context)
 
 @csrf_protect
 def render_about_member(request, member_name):
 
-    # TODO: this is a temporary measure.
-    # In prod, this will assert that member_name is in the db
-    # or else reroute to /about/
-    members = [
-        'squideon',
-        'stringer',
-        'bellydrum',
-        'wacky280',
-        'kennzoil',
-    ]
-    if member_name not in members:
+    # ensure given member username exists in the database
+    member = Member.objects.filter(username__iexact=member_name)
+    if not member:
         return redirect('about_us')
-
+    member = member[0]  # member always contains one result because username is distinct
 
     # gather data to send to about_member page
     context = {
         "csrf": csrf,
-        "text": "test text",
-        "member_name": member_name,
+        "member": member,
     }
 
     return render(request, 'about_member.html', context)

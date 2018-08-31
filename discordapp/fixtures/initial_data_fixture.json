@@ -116,8 +116,8 @@
         "age": 26,
         "birthday": null,
         "role": "Athletic Geek",
-        "favorite_nintendo_series": null,
-        "favorite_non_nintendo_series": null,
+        "favorite_nintendo_series": "Zelda!!",
+        "favorite_non_nintendo_series": "Final Fantasy but fav non-nintendo game would be Dark Souls",
         "pokemon_team": null,
         "social_media": null
     }
