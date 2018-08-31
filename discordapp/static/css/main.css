@@ -80,6 +80,7 @@ body {
 .main-footer {
     height: 280px;
     background-color: lightblue;
+    margin-top: 120px;
 }
 .footer-copyright-text {
     position: relative;
