@@ -13,6 +13,9 @@ class PokemonTeam(models.Model):
     pokemon_5_dex_id = models.PositiveSmallIntegerField()
     pokemon_6_dex_id = models.PositiveSmallIntegerField()
 
+    class Meta:
+        db_table = 'pokemon_teams'
+
 # url links to a Members social media pages
 class SocialMedia(models.Model):
     social_media_id = models.AutoField(primary_key=True)
@@ -22,33 +25,36 @@ class SocialMedia(models.Model):
     soundcloud_url = models.TextField()
     favorite_switch_clip = models.TextField()
 
+    class Meta:
+        db_table = 'social_media'
+
 # members of the SuperFam
 class Member(models.Model):
     member_id = models.AutoField(
         primary_key=True
     )
-    member_lastname = models.CharField(
+    lastname = models.CharField(
         max_length=32,
         blank=False,
         null=False
     )
-    member_firstname = models.CharField(
+    firstname = models.CharField(
         max_length=32,
         blank=False,
         null=False
     )
-    member_username = models.CharField(
+    username = models.CharField(
         max_length=32,
         unique=True,
         blank=False,
         null=False
     )
-    member_age = models.PositiveSmallIntegerField()
-    member_birthday = models.DateTimeField(
+    age = models.PositiveSmallIntegerField()
+    birthday = models.DateTimeField(
         blank=True,
         null=True
     )
-    member_role = models.CharField(
+    role = models.CharField(
         max_length=100,
         unique=True,
         blank=False,
@@ -78,3 +84,7 @@ class Member(models.Model):
         db_index=True,
         on_delete=models.PROTECT
     )
+    
+    class Meta:
+        db_table = 'members'
+        unique_together = (('firstname', 'lastname'),)
