@@ -53,7 +53,7 @@ def render_about_member(request, member_name):
     # ensure given member username exists in the database
     member = Member.objects.filter(username__iexact=member_name)
     if not member:
-        return redirect('about_us')
+        return redirect('about')
     member = member[0]  # member always contains one result because username is distinct
 
     # gather data to send to about_member page
