@@ -37,11 +37,13 @@ def render_homepage(request):
 
 @csrf_protect
 def render_about_us(request):
+
+    members = Member.objects.all()
     
     context = {
         "csrf": csrf,
         "text": "test text",
-        "number_of_cards": 1,
+        "members": members
     }
 
     return render(request, 'about_us.html', context)

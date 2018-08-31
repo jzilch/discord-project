@@ -1,68 +1,16 @@
 {% load static %}
 
-<!-- TODO: replace with one single dynamically rendered bio card template -->
-
+{% for member in members %}
 <!-- template for bio cards on the /aboutus/ page -->
-<a href="{% url 'about_member' 'squideon' %}">
-    <div class='bio-card bio-card-squideon'>
+<a href="{% url 'about_member' member.username %}">
+    <div class='bio-card bio-card-{{ member.username }}'>
         <div class='bio-card-info-container'>
             <div class='bio-card-text-blur'></div>
             <div class="bio-card-text">
-                <h5>squideon</h5>
-                <p class="bio-card-title">General Dork</p>
+                <h5>{{ member.username }}</h5>
+                <p class="bio-card-title">{{ member.role }}</p>
             </div>
         </div>
     </div>
 </a>
-
-<!-- template for bio cards on the /aboutus/ page -->
-<a href="{% url 'about_member' 'stringer' %}">
-    <div class='bio-card bio-card-stringer'>
-        <div class='bio-card-info-container'>
-            <div class='bio-card-text-blur'></div>
-            <div class="bio-card-text">
-                <h5>stringer</h5>
-                <p class="bio-card-title">Zelda Lord</p>
-            </div>
-        </div>
-    </div>
-</a>
-
-<!-- template for bio cards on the /aboutus/ page -->
-<a href="{% url 'about_member' 'bellydrum' %}">
-    <div class='bio-card bio-card-bellydrum'>
-        <div class='bio-card-info-container'>
-            <div class='bio-card-text-blur'></div>
-            <div class="bio-card-text">
-                <h5>bellydrum</h5>
-                <p class="bio-card-title">Collector Nerd</p>
-            </div>
-        </div>
-    </div>
-</a>
-
-<!-- template for bio cards on the /aboutus/ page -->
-<a href="{% url 'about_member' 'wacky280' %}">
-    <div class='bio-card bio-card-wacky280'>
-        <div class='bio-card-info-container'>
-            <div class='bio-card-text-blur'></div>
-            <div class="bio-card-text">
-                <h5>wacky280</h5>
-                <p class="bio-card-title">Athletic Geek</p>
-            </div>
-        </div>
-    </div>
-</a>
-
-<!-- template for bio cards on the /aboutus/ page -->
-<a href="{% url 'about_member' 'kennzoil' %}">
-    <div class='bio-card bio-card-kennzoil'>
-        <div class='bio-card-info-container'>
-            <div class='bio-card-text-blur'></div>
-            <div class="bio-card-text">
-                <h5>kennzoil</h5>
-                <p class="bio-card-title">Chiptune Guy</p>
-            </div>
-        </div>
-    </div>
-</a>
+{% endfor %}

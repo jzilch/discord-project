@@ -18,17 +18,8 @@
     <div class='about-us-text'>SuperFam is a collective of friends based in the St. Louis area that are united by their passion for the Nintendo Switch and gaming at large.</div>
 </div>
 
-<!-- eventually, once we have everyone in the database, -->
-<!-- we'll pull all the users from there and -->
-<!-- render their data as templates -->
-<!-- until then each member will be hardcoded, which is fine too -->
-
 <div class='grid-container about-us-grid'>
-
-<!-- TODO: loop over each member given by the request and render bio_card.html dynamically -->
-{% include 'assets/bio_card.html' %}
-
-
+    {% include 'assets/bio_card.html' %}
 </div>
 
 {% endblock %}
