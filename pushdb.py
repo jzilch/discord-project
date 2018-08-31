@@ -12,13 +12,16 @@ Notes:
 
 from os import system
 from sys import argv, exit
+from time import sleep
 
 # hardcoded for easy changing
 db = "superfam"
 remote_db = "postgresql-flat-22036"
 heroku_app = "discord-project"
 
-response = input("\nWARNING.\nYou are about to push the local version of database '{}' to the server.\nIs that what you want?\n(Y/n)\n".format(db))
+print("\nWARNING.\nYou are about to push the local version of database '{}' to the server.\n".format(db))
+sleep(2)
+response = input("Is that what you want?\n(Y/n)\n")
 
 if response == "Y":
     # Step 1
@@ -27,5 +30,5 @@ if response == "Y":
 	system("heroku pg:push {} {} --app {}".format(db, remote_db, heroku_app))
 	print("Done.")
 else:
-	print("Cancelling database push.")
+	print("\nCancelled.")
 	exit(1)
