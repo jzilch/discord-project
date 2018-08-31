@@ -1,6 +1,5 @@
 {% load static %}
 
-{% for member in members %}
 <!-- template for bio cards on the /aboutus/ page -->
 <a class="bio-card-anchor" href="{% url 'about_member' member.username %}">
     <!-- these background-image filepaths must be hardcoded -->
@@ -15,4 +14,3 @@
         </div>
     </div>
 </a>
-{% endfor %}

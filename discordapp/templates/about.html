@@ -22,7 +22,9 @@
 </div>
 
 <div class='grid-container about-us-grid'>
-{% include 'assets/bio_card.html' %}
+{% for member in members %}
+    {% include 'assets/bio_card.html' %}
+{% endfor %}
 </div>
 
 {% endblock %}
