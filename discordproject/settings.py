@@ -25,7 +25,7 @@ SECRET_KEY = '1zgu3==(21l04$kbfg13^o*510f01&6fjo0@fl)=@+o(v^y_(f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,19 +83,19 @@ WSGI_APPLICATION = 'discordproject.wsgi.application'
 # PROD VARIABLE
 # uncomment to run on server
 # comment out the NON-PROD version
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'discord-project-db',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'superfam',
+    }
+}
 
 # NON-PROD VARIABLE
 # Uncomment to run locally
 
-DATABASES = {
-    'default': dj_database_url.config()
-}
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 
 # Password validation
