@@ -1,8 +1,6 @@
 {% load static %}
 
 Username: {{ member.username }}<br>
-First Name: {{ member.firstname }}<br>
-Last Name: {{ member.lastname }}<br>
 {% if member.birthday %}
     Birthday: {{ member.birthday|date:'F d' }}<br>
 {% endif %}
