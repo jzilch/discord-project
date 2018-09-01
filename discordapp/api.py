@@ -7,11 +7,11 @@ from discordapp.models import *
 import json
 
 '''
-This is the API for the SuperFam website.
+This is the API for the SuperFam database.
 
 About:
-    - these functions are to only be used by views.py.
-    - these functions are the only functions allowed to access the database.
+    - these API functions are to only be used by views.py.
+    - these are the only functions allowed to access the database.
 
 Summary:
     - get_member_by_username()
@@ -26,6 +26,7 @@ TODO:
 
     Optional:
 
+Remember to cmd+f for TODO and NOTE.
 '''
 
 
@@ -159,7 +160,8 @@ def get_social_media_by_username(username):
         Return SocialMedia object associated with a given username.
 
     Params:
-        - username (str): username of Member object whose SocialMedia object to return.
+        - username (String):
+            - username of Member object whose SocialMedia object to return.
 
     Return values:
         Intended:
@@ -205,8 +207,10 @@ def get_member_info(username, info_type):
         Returns a Members PokemonTeam or SocialMedia object.
     
     Params:
-        - username (str): username of Member object whose PokemonTeam object to return.
-        - info_type (str): Member ForeignKey to query (should only be "PokemonTeam" or "SocialMedia")
+        - username (String/Member):
+            - username of Member object whose PokemonTeam object to return. Also takes Member objects.
+        - info_type (String):
+            - Member ForeignKey to query (should only be "PokemonTeam" or "SocialMedia")
 
     Return values:
         Intended:
@@ -223,21 +227,35 @@ def get_member_info(username, info_type):
 
     Function:
         Step 1.
-            - validate info_type parameter. Return ValueError if given info_type is not an existing ForeignKey on the Member class.
+            - initialize a dictionary that points info_type values to Member model ForeignKey names. This is so changes can easily be made.
         Step 2.
+            - validate username parameter. If Member object, obtain Member.username.
+        Step 3.
+            - validate info_type parameter. Return ValueError if given info_type is not an existing ForeignKey on the Member class.
     TODO:
     
     '''
 
-    # Step 1. validate info_type parameter.
+    # Step 1. initialize {info_type: ForeignKey} dictionary
+    # NOTE: Any additions of foreign keys to the Member model or changes to the names of the foreign keys on the Member model should be reflected here.
+    INFO_TYPE_DICT = {
+        "pokemon_team": "pokemon_team_id",
+        "social_media": "social_media_id",
+    }
+
+    # Step 2. validate username parameter.
+    if type(username) == Member:
+        username = username.username
+
+    # Step 3. validate info_type parameter.
     try:
-        getattr(Member, info_type + "_id")
+        getattr(Member, INFO_TYPE_DICT[info_type])
     except AttributeError:
         raise AttributeError(
             "ForeignKey of name \"{}\" does not exist on Member object.\nOptions are:\n-\"pokemon_team\"\n-\"social_media\"".format(info_type)
         )
 
-    # Step 2. retrieve info link based on info_type parameter
+    # Step 4. retrieve info link based on info_type parameter
     if info_type == "pokemon_team":
         member_info_link = get_pokemon_team_by_username(username)
     elif info_type == "social_media":
