@@ -1,16 +1,20 @@
 #! /usr/bin/env python3
 
-'''
+# read the comments below and follow their directions so you can use this script
+
+''' DOCUMENTATION
+
 About:
-	This script is fucking dope
+	This script is fucking handy
 	It handles a shitton of legwork required for developing a database
 When to use it:
+	- When you need to create the local database for the first time
 	- When you update models.py
 	- When you fuck up the data in the database
 Usage:
-	./refreshdb.py <db_name> <psql_user>
-	- for example, $ ./refreshdb.py superfresh david
-	- psql_user is whatever user you want to use for postgres
+	- change the ROOT_USER and CURRENT_USER variables below
+	- delete the if ROOT_USER statement so the script doesn't exit
+	- run $ ./refreshdb.py
 Notes:
 	- THIS SCRIPT DELETES ALL DATA MIGRATIONS
 	- Make sure you know what a data migration is, and
@@ -21,17 +25,23 @@ Notes:
 from os import system
 from sys import argv, exit
 
-if len(argv) != 3:
-	print("\nUsage: refreshdb.py <db_name> <psql_user>")
+DATABASE = "superfam"
+ROOT_USER = "davidmaness"  # REPLACE THIS WITH YOUR PSQL ROOT USER
+CURRENT_USER = "david"  # REPLACE THIS WITH YOUR CURRENTLY LOGGED IN PSQL USER
+
+# delete these two lines so this will actually run :3
+if ROOT_USER != "davidmaness":
+	print("READ THIS FILE BEFORE RUNNING IT")
 	exit(1)
 
-db = argv[1]
 
-system("dropdb {}".format(db))
-system("createdb {}".format(db))
+# WARNING: don't touch anything below this
+# -----------------------------------------------------------------------------
+system("dropdb {}".format(DATABASE))
+system("createdb {}".format(DATABASE))
 system("rm -rf discordapp/migrations/00*")
 system("./manage.py makemigrations")
 system("./manage.py migrate")
-system('psql -U davidmaness -d {} -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO david; GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO david;"'.format(db))
+system('psql -U {ROOT_USER} -d {DATABASE} -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO {CURRENT_USER}; GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO {CURRENT_USER};"'.format(ROOT_USER=ROOT_USER, DATABASE=DATABASE, CURRENT_USER=CURRENT_USER))
 system("./manage.py loaddata initial_data_fixture.json")
-print("Database {} refreshed.".format(db))
+print("Database {} refreshed.".format(DATABASE))
