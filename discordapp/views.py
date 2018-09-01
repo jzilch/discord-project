@@ -45,11 +45,19 @@ def render_about_member(request, member_name):
     except ValueError as ve:
         return redirect('about')
 
+    # retrieve PokemonTeam and SocialMedia objects for member
+    pokemon_team_link = get_member_info(member.username, "pokemon_team")
+    social_media_link = get_member_info(member.username, "social_media")
+
     # gather data to send to about_member.html
     context = {
         "csrf": csrf,
         "member": member,
+        "pokemon_team": pokemon_team_link,
+        "social_media": social_media_link
     }
+
+    print(type(social_media_link))
 
     return render(request, 'about_member.html', context)
 

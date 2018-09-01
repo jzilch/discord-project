@@ -35,7 +35,7 @@ class SocialMedia(models.Model):
         blank=True,
         null=True
     )
-    favorite_switch_clip = models.TextField(
+    favorite_switch_clip_url = models.TextField(
         blank=True,
         null=True
     )

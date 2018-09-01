@@ -236,7 +236,7 @@ def get_member_info(username, info_type):
         raise AttributeError(
             "ForeignKey of name \"{}\" does not exist on Member object.\nOptions are:\n-\"pokemon_team\"\n-\"social_media\"".format(info_type)
         )
-    
+
     # Step 2. retrieve info link based on info_type parameter
     if info_type == "pokemon_team":
         member_info_link = get_pokemon_team_by_username(username)
@@ -246,5 +246,5 @@ def get_member_info(username, info_type):
         raise ValueError(
             "get_member_info() has not yet been modified to retrieve values for info_type {}.".format(info_type)
         )
-    
+
     return member_info_link
