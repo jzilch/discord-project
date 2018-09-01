@@ -10,14 +10,15 @@ import json
 This is the API for the SuperFam website.
 
 About:
-    - these functions access the database.
-    - only these functions are allowed to touch the database.
-    - the only file that is allowed to call these functions is views.py
+    - these functions are to only be used by views.py.
+    - these functions are the only functions allowed to access the database.
 
 Summary:
     - get_member_by_username()
     - get_members()
+    - get_pokemon_team_by_username()
     - get_social_media_by_username()
+    - get_member_info()
 
 TODO:
     Important:
@@ -235,7 +236,7 @@ def get_member_info(username, info_type):
         raise AttributeError(
             "ForeignKey of name \"{}\" does not exist on Member object.\nOptions are:\n-\"pokemon_team\"\n-\"social_media\"".format(info_type)
         )
-    
+
     # Step 2. retrieve info link based on info_type parameter
     if info_type == "pokemon_team":
         member_info_link = get_pokemon_team_by_username(username)
@@ -245,5 +246,5 @@ def get_member_info(username, info_type):
         raise ValueError(
             "get_member_info() has not yet been modified to retrieve values for info_type {}.".format(info_type)
         )
-    
+
     return member_info_link
