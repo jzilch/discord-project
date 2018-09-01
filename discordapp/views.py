@@ -26,6 +26,13 @@ def render_error_page(request):
     return render(request, 'error.html', context)
 
 @csrf_protect
+def render_coming_soon(request):
+
+    context = {}
+
+    return render(request, 'coming_soon.html', context)
+
+@csrf_protect
 def render_homepage(request):
 
     context = {
