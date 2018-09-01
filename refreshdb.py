@@ -37,6 +37,7 @@ if ROOT_USER != "davidmaness":
 
 # WARNING: don't touch anything below this
 # -----------------------------------------------------------------------------
+print("If this is hanging, remember to stop the local server.")
 system("dropdb {}".format(DATABASE))
 system("createdb {}".format(DATABASE))
 system("rm -rf discordapp/migrations/00*")
