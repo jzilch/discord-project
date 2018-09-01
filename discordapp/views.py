@@ -14,17 +14,6 @@ from discordapp.api import *
 import json
 
 
-# render pages
-
-# error page
-
-@csrf_protect
-def render_error_page(request):
-
-    context = {}
-
-    return render(request, 'error.html', context)
-
 @csrf_protect
 def render_coming_soon(request):
 
@@ -37,7 +26,6 @@ def render_homepage(request):
 
     context = {
         "csrf": csrf,
-        "text": "test text",
     }
 
     return render(request, 'index.html', context)
@@ -47,6 +35,7 @@ def render_about(request):
 
     members = get_members()
 
+    # gather data to send to about.html
     context = {
         "csrf": csrf,
         "members": members
@@ -58,12 +47,12 @@ def render_about(request):
 def render_about_member(request, member_name):
 
     # ensure given member username exists in the database
-    member = Member.objects.filter(username__iexact=member_name)
-    if not member:
+    try:
+        member = get_member_by_username(member_name)
+    except ValueError as ve:
         return redirect('about')
-    member = member[0]  # member always contains one result because username is distinct
 
-    # gather data to send to about_member page
+    # gather data to send to about_member.html
     context = {
         "csrf": csrf,
         "member": member,
@@ -76,10 +65,6 @@ def render_our_stuff(request):
 
     context = {
         "csrf": csrf,
-        "text": "test text",
     }
 
     return render(request, 'our_stuff.html', context)
-
-
-# access database
