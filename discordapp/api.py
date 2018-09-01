@@ -10,14 +10,15 @@ import json
 This is the API for the SuperFam website.
 
 About:
-    - these functions access the database.
-    - only these functions are allowed to touch the database.
-    - the only file that is allowed to call these functions is views.py
+    - these functions are to only be used by views.py.
+    - these functions are the only functions allowed to access the database.
 
 Summary:
     - get_member_by_username()
     - get_members()
+    - get_pokemon_team_by_username()
     - get_social_media_by_username()
+    - get_member_info()
 
 TODO:
     Important:
