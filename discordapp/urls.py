@@ -8,8 +8,9 @@ from .views import *
 
 urlpatterns = [
     # navigational page rendering
-    url('^$', render_homepage, name='index'),
-    url('^about/$', render_about, name='about'),
-    url('^about/([\w\d]+)$', render_about_member, name='about_member'),
-    url('^ourstuff/$', render_our_stuff, name='our_stuff'),
+    url('^$', render_coming_soon, name='coming_soon'),
+    # url('^$', render_homepage, name='index'),
+    # url('^about/$', render_about, name='about'),
+    # url('^about/([\w\d]+)$', render_about_member, name='about_member'),
+    # url('^ourstuff/$', render_our_stuff, name='our_stuff'),
 ]
