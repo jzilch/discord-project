@@ -34,6 +34,10 @@
     <!-- member info -->
     <div class="member-info-container bio-section">
         <p class="username-decoration">{{ member.username }}</p>
+        <p>{{ member.role }}<br>
+        {% if member.bio %}
+        <em>"{{ member.bio }}"</em></p>
+        {% endif %}
         {% if member.favorite_nintendo_series %}
         <p>Favorite Nintendo series:<br><em>{{ member.favorite_nintendo_series }}</em></p>
         {% endif %}
