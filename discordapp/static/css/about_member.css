@@ -27,6 +27,10 @@
     justify-content: center;
     text-align: center;
 }
+.pokemon-container>img {
+    width: 200%;
+    height: auto;
+}
 
 .member-image-container {
     width: 100%;
@@ -136,6 +140,10 @@
     }
     .bio-section {
         margin: 0px 0px 50px !important;
+    }
+    .pokemon-container>img {
+        width: 100%;
+        height: auto;
     }
     .fa {
         font-size: 3em !important;
