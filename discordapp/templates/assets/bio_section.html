@@ -1,0 +1,89 @@
+{% load static %}
+
+<div class="bio-container container-fluid">
+
+    <!-- pokemon team row -->
+    {% if pokemon_team %}
+    <div class="pokemon-team-container bio-section row">
+        <div class="pokemon-container col-xs-4 col-md-2">
+            {{ pokemon_team.pokemon_1_dex_id }}
+        </div>
+        <div class="pokemon-container col-xs-4 col-md-2">
+            {{ pokemon_team.pokemon_2_dex_id }}
+        </div>
+        <div class="pokemon-container col-xs-4 col-md-2">
+            {{ pokemon_team.pokemon_3_dex_id }}
+        </div>
+        <div class="pokemon-container col-xs-4 col-md-2">
+            {{ pokemon_team.pokemon_4_dex_id }}
+        </div>
+        <div class="pokemon-container col-xs-4 col-md-2">
+            {{ pokemon_team.pokemon_5_dex_id }}
+        </div>
+        <div class="pokemon-container col-xs-4 col-md-2">
+            {{ pokemon_team.pokemon_6_dex_id }}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- member image -->
+    <div class="member-image-container bio-section">
+        <img class="member-image img-responsive" src="../../static/images/bio_images/{{ member.username }}_bio_image.jpg">
+    </div>
+
+    <!-- member info -->
+    <div class="member-info-container bio-section">
+        <p class="username-decoration">{{ member.username }}</p>
+        {% if member.favorite_nintendo_series %}
+        <p><em>Favorite Nintendo series:</em><br>{{ member.favorite_nintendo_series }}</p>
+        {% endif %}
+        {% if member.favorite_non_nintendo_series %}
+        <p><em>Favorite Non-tendo series:</em><br>{{ member.favorite_non_nintendo_series }}</p>
+        {% endif %}
+    </div>
+
+
+    <!-- social media -->
+    {% if social_media %}
+    <div class="social-media-container bio-section row">
+        {% if social_media.youtube_url %}
+        <a href="{{ social_media.youtube_url }}">
+        {% endif %}
+            <div class="{% if social_media.youtube_url %}has-youtube-link{% else %}no-social-media-link{% endif %} social-media-icon-container col-xs-6 col-md-3">
+                <i class="fa fa-youtube fa-2x"></i>
+            </div>
+        {% if social_media.youtube_url %}
+        </a>
+        {% endif %}
+
+        {% if social_media.twitter_url %}
+        <a href="{{ social_media.twitter_url }}">
+        {% endif %}
+            <div class="{% if social_media.twitter_url %}has-twitter-link{% else %}no-social-media-link{% endif %} social-media-icon-container col-xs-6 col-md-3">
+            <i class="fa fa-twitter fa-2x"></i>
+            </div>
+        {% if social_media.twitter_url %}
+        </a>
+        {% endif %}
+        {% if social_media.twitch_url %}
+        <a href="{{ social_media.twitch_url }}">
+        {% endif %}
+            <div class="{% if social_media.twitch_url %}has-twitch-link{% else %}no-social-media-link{% endif %} social-media-icon-container col-xs-6 col-md-3">
+                <i class="fa fa-twitch fa-2x"></i>
+            </div>
+        {% if social_media.twitch_url %}
+        </a>
+        {% endif %}
+        {% if social_media.soundcloud_url %}
+        <a href="{{ social_media.soundcloud_url }}">
+        {% endif %}
+            <div class="{% if social_media.soundcloud_url %}has-soundcloud-link{% else %}no-social-media-link{% endif %} social-media-icon-container col-xs-6 col-md-3">
+                <i class="fa fa-soundcloud fa-2x"></i>
+            </div>
+        {% if social_media.soundcloud_url %}
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+</div>

@@ -1,1 +1,161 @@
 /********* /about/member *********/
+
+.bio-container {
+    /* border: 1px dotted red; */
+    padding: 0px !important;  /* override bootstrap default setting */
+    /* sizing and position */
+    width: 25vw;
+}
+.bio-section {
+    margin: 20px 0px !important;
+}
+
+.pokemon-team-container {
+    /* sizing and position */
+    height: 100%;
+    width: 100%;
+}
+.pokemon-container {
+    /* sizing and position */
+    height: 100%;
+
+    /* styles */
+
+    /* center icons in cell */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.member-image-container {
+    width: 100%;
+    height: auto;
+
+    /* styles */
+    border-radius: 5px;
+    overflow: hidden;
+}
+.member-image {
+    width: 100%;
+    height: auto;
+}
+
+.member-info-container {
+    text-align: center;
+}
+.username-decoration {
+    color: cornflowerblue;
+    font-size: 1.5em;
+}
+
+/* holds the social media section */
+.social-media-container {}
+
+/* bootstrap column that holds the icons */
+.social-media-icon-container {
+    padding: 0px;  /* overrides bootstrap setting */
+
+    /* styles */
+    border-radius: 15%;
+
+    /* white border */
+    border: 5px solid transparent;
+    background-clip: padding-box;
+}
+
+.has-youtube-link {
+    background-color: #bb0000;`
+}
+.has-twitter-link {
+    background-color: #55acee;
+}
+.has-twitch-link {
+    background-color: #6441a4;
+}
+.has-soundcloud-link {
+    background-color: #f80;
+}
+[class^="has-"]:hover {
+    opacity: 0.7;
+
+    /* for "bumping" the social media icon on hover */
+    transform: translateY(-4px);
+    transition: 0.1s;
+    transition-timing-function: ease-in;
+}
+.no-social-media-link {
+    background-color: #d9d9d9;
+}
+
+/* font awesome icons */
+.fa {
+
+    /* sizing and position */
+    font-size: 2em !important;
+    width: 100%;
+    padding: 25% 0%;
+
+    /* styles */
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+
+/****************** BOOTSTRAP OVERRIDES ******************/
+
+[class^="col-"] {
+    background-color: red !important;
+    padding-right: none !important;
+    padding-left: none;
+}
+
+
+
+/****************** RESPONSIVE CSS ******************/
+
+@media only screen and (max-width: 992px) {
+    .social-media-container {
+        height: 100%;
+    }
+    [class^="has-"]:hover {
+        transform: translateY(0px);
+        transition: 0.0s;
+        transition-timing-function: ease-in;
+    }
+}
+
+/* pretty much for all mobile devices except iPads (large screens) */
+@media only screen and (max-width: 600px) {
+
+    .bio-container {
+
+        /* sizing and position */
+        width: 60vw;
+    }
+    .bio-section {
+        margin: 0px 0px 50px !important;
+    }
+    .fa {
+        font-size: 3em !important;
+        padding: 30% 0%;
+
+        /* white border */
+        border: 10px solid transparent;
+        background-clip: padding-box;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .fa {
+        padding: 22% 0%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .fa {
+        font-size: 1.2em !important;
+        padding: 18% 0%;
+    }
+}

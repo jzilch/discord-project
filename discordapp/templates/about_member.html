@@ -5,6 +5,7 @@
 
 {% block head %}
 {% include 'heads/main_head.html' %}
+{% include 'heads/about_member_head.html' %}
 {% endblock %}
 
 {% block header %}
@@ -12,9 +13,7 @@
 {% endblock %}
 
 {% block content %}
-<div class='container'>
-    {% include 'assets/bio_table.html' %}
-</div>
+{% include 'assets/bio_section.html' %}
 {% endblock %}
 
 {% block footer %}
