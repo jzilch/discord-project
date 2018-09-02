@@ -74,6 +74,10 @@ class Member(models.Model):
         blank=False,
         null=False
     )
+    bio = models.TextField(
+        blank=True,
+        null=True
+    )
     favorite_nintendo_series = models.TextField(
         blank=True,
         null=True
