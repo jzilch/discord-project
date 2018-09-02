@@ -5,23 +5,23 @@
     <!-- pokemon team row -->
     {% if pokemon_team %}
     <div class="pokemon-team-container bio-section row">
+            <div class="pokemon-container col-xs-4 col-md-2">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon_team.pokemon_1_dex_id }}.png">
+                </div>
         <div class="pokemon-container col-xs-4 col-md-2">
-            {{ pokemon_team.pokemon_1_dex_id }}
-        </div>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon_team.pokemon_2_dex_id }}.png">
+            </div>
         <div class="pokemon-container col-xs-4 col-md-2">
-            {{ pokemon_team.pokemon_2_dex_id }}
-        </div>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon_team.pokemon_3_dex_id }}.png">
+            </div>
         <div class="pokemon-container col-xs-4 col-md-2">
-            {{ pokemon_team.pokemon_3_dex_id }}
-        </div>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon_team.pokemon_4_dex_id }}.png">
+            </div>
         <div class="pokemon-container col-xs-4 col-md-2">
-            {{ pokemon_team.pokemon_4_dex_id }}
-        </div>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon_team.pokemon_5_dex_id }}.png">
+            </div>
         <div class="pokemon-container col-xs-4 col-md-2">
-            {{ pokemon_team.pokemon_5_dex_id }}
-        </div>
-        <div class="pokemon-container col-xs-4 col-md-2">
-            {{ pokemon_team.pokemon_6_dex_id }}
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon_team.pokemon_6_dex_id }}.png">
         </div>
     </div>
     {% endif %}
