@@ -1,4 +1,15 @@
 [{
+    "model": "discordapp.pokemonteam",
+    "pk": 1,
+    "fields": {
+        "pokemon_1_dex_id": 1,
+        "pokemon_2_dex_id": 4,
+        "pokemon_3_dex_id": 7,
+        "pokemon_4_dex_id": 10,
+        "pokemon_5_dex_id": 15,
+        "pokemon_6_dex_id": 25
+    }
+}, {
     "model": "discordapp.socialmedia",
     "pk": 1,
     "fields": {
@@ -87,7 +98,7 @@
         "role": "Collector Nerd",
         "favorite_nintendo_series": "Zelda!",
         "favorite_non_nintendo_series": null,
-        "pokemon_team_id": null,
+        "pokemon_team_id": 1,
         "social_media_id": 3
     }
 }, {
