@@ -120,7 +120,6 @@ class Project(models.Model):
         null=False
     )
     url = models.TextField(
-        unique=True,
         blank=False,
         null=False
     )

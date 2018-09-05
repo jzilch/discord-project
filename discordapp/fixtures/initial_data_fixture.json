@@ -222,6 +222,34 @@
         "url": "https://www.youtube.com/playlist?list=PLvJwEivDx_D-V51ljBIIwVPKoVfFnZ9X2"
     }
 }, {
+    "model": "discordapp.project",
+    "pk": 2,
+    "fields": {
+        "title": "Switchalympics",
+        "url": "https://www.youtube.com/"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 3,
+    "fields": {
+        "title": "Grabspammer",
+        "url": "https://www.youtube.com/"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 4,
+    "fields": {
+        "title": "Indie Corner",
+        "url": "https://www.youtube.com/"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 5,
+    "fields": {
+        "title": "Couch Co-Op",
+        "url": "https://www.youtube.com/"
+    }
+}, {
     "model": "discordapp.projectrole",
     "pk": 1,
     "fields": {
@@ -241,6 +269,30 @@
     "fields": {
         "member_id": 2,
         "project_id": 1,
+        "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 2,
+    "fields": {
+        "member_id": 3,
+        "project_id": 3,
+        "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 3,
+    "fields": {
+        "member_id": 3,
+        "project_id": 4,
+        "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 4,
+    "fields": {
+        "member_id": 5,
+        "project_id": 5,
         "project_role": 1
     }
 }]
