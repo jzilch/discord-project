@@ -108,7 +108,7 @@ body {
 
 /* navbar css */
 .container-fluid {
-    background-color: #feffff !important;
+    background-color: #feffff;
 }
 .navbar {
     margin-bottom: 100px !important;

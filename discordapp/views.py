@@ -57,7 +57,7 @@ def render_about_member(request, member_name):
         "social_media": social_media_link
     }
 
-    print(type(social_media_link))
+    print(social_media_link.favorite_switch_clip_url)
 
     return render(request, 'about_member.html', context)
 

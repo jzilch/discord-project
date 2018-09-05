@@ -13,7 +13,10 @@
 {% endblock %}
 
 {% block content %}
-{% include 'assets/bio_section.html' %}
+<div class='about-member-container'>
+    {% include 'assets/bio_container.html' %}
+    {% include 'assets/favorite_clip_container.html' %}
+</div>
 {% endblock %}
 
 {% block footer %}

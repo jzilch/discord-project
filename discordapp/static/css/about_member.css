@@ -1,18 +1,58 @@
 /********* /about/member *********/
 
+/* whole page content */
+.about-member-container {
+    /* border: 2px dotted black; */
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+/* override container-fluid bootstrap defaults */
+.about-member-container>div {
+    margin: 0 !important;
+    padding: 0;
+    background-color: #e6fff5;
+    border-radius: 5px;
+    padding: 0px 20px !important;
+}
+
+/* member bio section on the left */
 .bio-container {
-    /* border: 1px dotted red; */
+    /* border: 1px dotted blue; */
     padding: 0px !important;  /* override bootstrap default setting */
     /* sizing and position */
-    width: 25vw;
+    width: 29%;
+
 }
+
+/* youtube switch clip embed on the right */
+.favorite-switch-clip-container {
+    /* border: 1px dotted red; */
+    width: 69%;
+    /* padding-top: 12.5% !important; */
+}
+.favorite-switch-clip-section {
+    margin-top: 20px;
+}
+.favorite-switch-clip-title {
+    text-align: center;
+    width: 100%;
+}
+.favorite-switch-clip {
+    width: 100%;
+    height: 62.5%;
+}
+.favorite-switch-clip-description {
+
+}
+
+/* subsections of the bio-container */
 .bio-section {
     margin: 20px 0px !important;
 }
-
 .pokemon-team-container {
     /* sizing and position */
-    height: 100%;
     width: 100%;
 }
 .pokemon-container {
@@ -28,8 +68,7 @@
     text-align: center;
 }
 .pokemon-container>img {
-    width: 200%;
-    height: auto;
+    height: 3em;
 }
 
 .member-image-container {
@@ -110,7 +149,6 @@
 /****************** BOOTSTRAP OVERRIDES ******************/
 
 [class^="col-"] {
-    background-color: red !important;
     padding-right: none !important;
     padding-left: none;
 }
@@ -127,10 +165,32 @@
         transition: 0.0s;
         transition-timing-function: ease-in;
     }
+    .favorite-switch-clip {
+        height: 36% !important;
+    }
 }
 
 /* pretty much for all mobile devices except iPads (large screens) */
 @media only screen and (max-width: 600px) {
+
+    .about-member-container {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-member-container>div {
+        background-color: #feffff;
+    }
+    .favorite-switch-clip-container {
+        text-align: center;
+        width: 100%;
+    }
+    .favorite-switch-clip {
+        width: 100%;
+        height: 222px !important;
+        padding: 15px;
+    }
 
     .bio-container {
 
@@ -139,6 +199,9 @@
     }
     .bio-section {
         margin: 0px 0px 50px !important;
+    }
+    .pokemon-container {
+        margin-top: 20px;
     }
     .pokemon-container>img {
         width: 100%;
