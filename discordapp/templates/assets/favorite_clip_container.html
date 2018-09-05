@@ -1,0 +1,10 @@
+{% load static %}
+{% load app_filters %}
+
+<div class="favorite-switch-clip-container container-fluid">
+    {% if social_media.favorite_switch_clip_url %}
+    <div class="favorite-switch-clip-title favorite-switch-clip-section">Favorite Switch Clip:</div>
+    <iframe class="favorite-switch-clip favorite-switch-clip-section" src="{{ social_media.favorite_switch_clip_url|format_youtube_url }}?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    <div class="favorite-switch-clip-description favorite-switch-clip-section">This is my favorite clip I've taken on my Nintendo Switch.</div>
+    {% endif %}
+</div>
