@@ -69,13 +69,13 @@ def get_member_by_username(username):
     return member
 
 
-def get_members(sort_by=None, amount=None):
+def get_members(sort_by="member_id", amount=None):
     '''
     Purpose:
-        Return a list of any number of Member objects optionally sorted.
+        Return a list of any number of Member objects sorted by member_id or by another column.
 
     Params:
-        - sort_by (str): column by which to sort the Member list.
+        - sort_by (str): column by which to sort the Member list. Defaults to primary key "member_id".
         - amount (int): number of members to retrieve.
 
     Return values:
@@ -94,15 +94,12 @@ def get_members(sort_by=None, amount=None):
     '''
 
     # Step 1. create a list of all Members sorted by the given sort_by attribute.
-    if sort_by:
-        try:
-            getattr(Member, sort_by)
-            members = Member.objects.order_by(sort_by)
-        except AttributeError:
-            members = get_members(sort_by="member_id")
-    else:
+    try:
+        getattr(Member, sort_by)
+        members = Member.objects.order_by(sort_by)
+    except AttributeError:
         members = get_members(sort_by="member_id")
-    
+
     # Step 2. filter the list down to the number of the given amount attribute.
     if amount:
         members = members[:amount]
