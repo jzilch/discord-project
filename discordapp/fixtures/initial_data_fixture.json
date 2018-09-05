@@ -132,7 +132,7 @@
         "firstname": "Guideon",
         "username": "squideon",
         "birthday": null,
-        "role": "General Dork",
+        "role": "Squid Kid",
         "bio": null,
         "favorite_nintendo_series": "Zelda",
         "favorite_non_nintendo_series": null,
@@ -208,11 +208,46 @@
         "username": "toastjpeg",
         "birthday": "1992-10-13",
         "role": "Punchy Kid",
-        "bio": null,
+        "bio": "I only play fighting games 'cause I can't fight people in real life without consequences.",
         "favorite_nintendo_series": "Animal Crossing",
         "favorite_non_nintendo_series": "Persona",
         "pokemon_team_id": 6,
         "social_media_id": 6
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 1,
+    "fields": {
+        "title": "The Anatomy of Zelda",
+        "url": "https://www.youtube.com/playlist?list=PLvJwEivDx_D-V51ljBIIwVPKoVfFnZ9X2"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 2,
+    "fields": {
+        "title": "Switchalympics",
+        "url": "https://www.youtube.com/"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 3,
+    "fields": {
+        "title": "Grabspammer",
+        "url": "https://www.youtube.com/"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 4,
+    "fields": {
+        "title": "Indie Corner",
+        "url": "https://www.youtube.com/"
+    }
+}, {
+    "model": "discordapp.project",
+    "pk": 5,
+    "fields": {
+        "title": "Couch Co-Op",
+        "url": "https://www.youtube.com/"
     }
 }, {
     "model": "discordapp.projectrole",
@@ -227,5 +262,37 @@
     "fields": {
         "project_role_name": "participant",
         "project_role_description": "General participant on the channel. May also appear in every episode, or as a recurring guest. Does not necessarily direct the narrative of the videos."
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 1,
+    "fields": {
+        "member_id": 2,
+        "project_id": 1,
+        "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 2,
+    "fields": {
+        "member_id": 3,
+        "project_id": 3,
+        "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 3,
+    "fields": {
+        "member_id": 3,
+        "project_id": 4,
+        "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 4,
+    "fields": {
+        "member_id": 5,
+        "project_id": 5,
+        "project_role": 1
     }
 }]
