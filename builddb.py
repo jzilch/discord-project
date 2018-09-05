@@ -14,7 +14,7 @@ When to use it:
 Usage:
 	- change the ROOT_USER and CURRENT_USER variables below
 	- delete the if ROOT_USER statement so the script doesn't exit
-	- run $ ./refreshdb.py
+	- run $ ./builddb.py
 Notes:
 	- THIS SCRIPT DELETES ALL DATA MIGRATIONS
 	- Make sure you know what a data migration is, and
@@ -45,4 +45,4 @@ system("./manage.py makemigrations")
 system("./manage.py migrate")
 system('psql -U {ROOT_USER} -d {DATABASE} -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO {CURRENT_USER}; GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO {CURRENT_USER};"'.format(ROOT_USER=ROOT_USER, DATABASE=DATABASE, CURRENT_USER=CURRENT_USER))
 system("./manage.py loaddata initial_data_fixture.json")
-print("\nDONE: Database {} successfully refreshed!\n".format(DATABASE))
+print("\nDONE: Database {} successfully built!\nData was pulled from discordapp/fixtures/initial_data_fixture.json.\n".format(DATABASE))
