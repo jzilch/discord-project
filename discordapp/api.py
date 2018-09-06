@@ -48,14 +48,28 @@ def get_member_by_username(username):
     
     Function:
         Step 1.
-            - query the database for a Member with the given username, returning None if the username is not found.
+            - validate username parameter.
+        Step 2.
+            - get Member object from database, or return None if does not exist.
     
     TODO
         Optional:
             - make this function flexible by making username optional and adding more optional parameters. This should probably entail changing the function name; something like get_member_by_attribute().
     '''
 
-    # Step 1. get Member object from database, or return None if does not exist
+    # Step 1. validate username parameter.
+    # NOTE - Since wrappers for this function may receive Member objects as their username parameter, validation for the Member type will go here.
+    if type(username) == Member:
+        username = username.username
+    else:
+        try:
+            # NOTE - Member.username is of the unicode type.
+            assert(isinstance(username, unicode) or isinstance(username, str))
+        except AssertionError:
+            raise TypeError("get_member_by_username() must only take a string or unicode object. Given input was of type {}.".format(type(username)))
+
+
+    # Step 2. get Member object from database, or return None if does not exist.
     try:
         member = Member.objects.get(username=username)
     except ObjectDoesNotExist as odne:
@@ -110,25 +124,25 @@ def get_members(sort_by="member_id", amount=None):
 def get_pokemon_team_by_username(username):
     '''
     Purpose:
-        Returns PokemonTeam object associated with a given username.
+        Returns LinkMemberPokemon object associated with a given username.
     
     Params:
-        - username (str): username of Member object whose PokemonTeam object to return.
+        - username (str): username of Member object whose LinkMemberPokemon object to return.
 
     Return values:
         Intended:
-            - PokemonTeam object
-            - None: Member's pokemon_team_id is blank or Null.
+            - LinkMemberPokemon object
+            - None: LinkMemberPokemon object does not exist with given member_id.
         Erroneous:
-            - ValueError: see get_member_by_username()
+            - ValueError: Member does not exist with given username. See get_member_by_username() for details.
             - Other Error:
-                - unexpected error occured querying the PokemonTeam object.
+                - unexpected error occured querying the LinkMemberPokemon object.
     
     Function:
         Step 1.
             - call get_member_by_username() on the given username parameter.
         Step 2.
-            - query for PokemonTeam object whose pokemon_team_id matches that of the Member object.
+            - query for LinkMemberPokemon object whose member_id matches that of the Member objects.
 
     TODO:
     
@@ -137,43 +151,44 @@ def get_pokemon_team_by_username(username):
     # Step 1. call get_member_by_username() on the given username parameter.
     member = get_member_by_username(username)
     
-    # Step 2. query for PokemonTeam object whose pokemon_team_id matches that of the Member object.
+    # Step 2. query for LinkMemberPokemon object whose member_id matches that of the Member objects.
     try:
-        pokemon_team_link = PokemonTeam.objects.get(
-            pokemon_team_id=member.pokemon_team_id.pokemon_team_id
+        member_pokemon = LinkMemberPokemon.objects.get(
+            member_id=member.member_id
         )
-    except AttributeError as ae:
-        if str(ae) == "'NoneType' object has no attribute 'pokemon_team_id'":
-            pokemon_team_link = None
+    except Exception as e:
+        print(e)
+        if str(e) == "'NoneType' object has no attribute 'member_id'":
+            member_pokemon = None
         else:
             raise
     
-    return pokemon_team_link
+    return member_pokemon
 
 
 def get_social_media_by_username(username):
     '''
     Purpose:
-        Return SocialMedia object associated with a given username.
+        Return LinkMemberSocialMedia object associated with a given username.
 
     Params:
         - username (String):
-            - username of Member object whose SocialMedia object to return.
+            - username of Member object whose LinkMemberSocialMedia object to return.
 
     Return values:
         Intended:
-            - SocialMedia object
-            - None: Member's social_media_id is blank or Null.
+            - LinkMemberSocialMedia object
+            - None: LinkMemberSocialMedia object does not exist with given member_id.
         Erroneous:
-            - ValueError: user does not exist with given username parameter.
+            - ValueError: Member does not exist with given username. See get_member_by_username() for details.
+            - Other Error:
+                - unexpected error occured querying the LinkMemberSocialMedia object.
     
     Function:
         Step 1.
             - call get_member_by_username() on the given username parameter.
         Step 2.
-            - if Member does not exist with given username, return ValueError.
-        Step 3.
-            - query for SocialMedia object whose social_media_id matches that of the Member object.
+            - query for LinkMemberSocialMedia object whose member_id matches that of the Member objects.
 
     TODO:
     
@@ -182,84 +197,57 @@ def get_social_media_by_username(username):
     # Step 1. call get_member_by_username() on the given username parameter.
     member = get_member_by_username(username)
 
-    # Step 2. if Member does not exist with given username, return ValueError.
-    if not member:
-        raise ValueError("User does not exist with that username.", username)
-    
-    # Step 3. query for SocialMedia object whose social_media_id matches that of the Member object.
+    # Step 2. query for LinkMemberSocialMedia object whose member_id matches that of the Member objects.
     try:
-        social_media_link = SocialMedia.objects.get(
-            social_media_id=member.social_media_id.social_media_id
+        member_social_media = LinkMemberSocialMedia.objects.get(
+            member_id=member.member_id
         )
     except AttributeError as ae:
         if str(ae) == "'NoneType' object has no attribute 'social_media_id'":
-            social_media_link = None
+            member_social_media = None
+        else:
+            raise
 
-    return social_media_link
+    return member_social_media
 
 
 def get_member_info(username, info_type):
     '''
     Purpose:
-        Returns a Members PokemonTeam or SocialMedia object.
+        Returns a members associated LinkMemberPokemon or LinkMemberSocialMedia object.
     
     Params:
         - username (String/Member):
-            - username of Member object whose PokemonTeam object to return. Also takes Member objects.
+            - username of Member object whose LinkMemberPokemon or LinkMemberSocialMedia object to return.
+            - also takes Member objects.
         - info_type (String):
-            - Member ForeignKey to query (should only be "PokemonTeam" or "SocialMedia")
+            - name of table whose data should be pulled.
+            - should only be "LinkMemberPokemon" or "LinkMemberSocialMedia".
 
     Return values:
         Intended:
-            - PokemonTeam object: see get_pokemon_team_by_username()
-            - SocialMedia object: see get_social_media_by_username()
-            - None: user has no data for given info_type parameter.
+            - LinkMemberPokemon object: see get_pokemon_team_by_username()
+            - LinkMemberSocialMedia object: see get_social_media_by_username()
+            - None: user has no data in the table referenced by the given info_type parameter.
         Erroneous:
-            - AttributeError:
-                - info_type parameter is erroneous. ForeignKey of name given by info_type parameter does not exist on Member object. See error message for details.
             - ValueError:
-                - username parameter is erroneous. Member object does not exist with given username. See error message for details.
-            - ValueError:
-                - this function is not handling a new info_type value. ForeignKey of name given by info_type parameter DOES exist on Member object, but this function has not yet been modified to be able to retrieve it. See error message for details.
+                - this function is not handling the info_type value.
 
     Function:
         Step 1.
-            - initialize a dictionary that points info_type values to Member model ForeignKey names. This is so changes can easily be made.
-        Step 2.
-            - validate username parameter. If Member object, obtain Member.username.
-        Step 3.
-            - validate info_type parameter. Return ValueError if given info_type is not an existing ForeignKey on the Member class.
+            - call the appropriate function based on the info_type parameter.
     TODO:
-    
+        - standardize available info_type inputs with either the database table names or the model names. "pokemon" and "social_media" Currently don't align with either.
     '''
 
-    # Step 1. initialize {info_type: ForeignKey} dictionary
-    # NOTE: Any additions of foreign keys to the Member model or changes to the names of the foreign keys on the Member model should be reflected here.
-    INFO_TYPE_DICT = {
-        "pokemon_team": "pokemon_team_id",
-        "social_media": "social_media_id",
-    }
-
-    # Step 2. validate username parameter.
-    if type(username) == Member:
-        username = username.username
-
-    # Step 3. validate info_type parameter.
-    try:
-        getattr(Member, INFO_TYPE_DICT[info_type])
-    except AttributeError:
-        raise AttributeError(
-            "ForeignKey of name \"{}\" does not exist on Member object.\nOptions are:\n-\"pokemon_team\"\n-\"social_media\"".format(info_type)
-        )
-
-    # Step 4. retrieve info link based on info_type parameter
-    if info_type == "pokemon_team":
+    # Step 1. call the appropriate function based on the info_type parameter.
+    if info_type == "pokemon":
         member_info_link = get_pokemon_team_by_username(username)
     elif info_type == "social_media":
         member_info_link = get_social_media_by_username(username)
     else:
         raise ValueError(
-            "get_member_info() has not yet been modified to retrieve values for info_type {}.".format(info_type)
+            "get_member_info() has not been modified to retrieve values for info_type {}.".format(info_type)
         )
 
     return member_info_link
