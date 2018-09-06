@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 from django.db import connection, transaction
 from discordapp.api import *
+from discordapp.models import *
 import json
 
 
@@ -42,18 +43,18 @@ def render_about_member(request, member_name):
     # ensure given member username exists in the database
     try:
         member = get_member_by_username(member_name)
-    except ValueError as ve:
+    except ValueError:
         return redirect('about')
 
     # retrieve PokemonTeam and SocialMedia objects for member
-    pokemon_team_link = get_member_info(member.username, "pokemon_team")
+    pokemon_link = get_member_info(member.username, "pokemon")
     social_media_link = get_member_info(member.username, "social_media")
 
     # gather data to send to about_member.html
     context = {
         "csrf": csrf,
         "member": member,
-        "pokemon_team": pokemon_team_link,
+        "pokemon_team": pokemon_link,
         "social_media": social_media_link
     }
 

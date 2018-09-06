@@ -1,130 +1,4 @@
 [{
-    "model": "discordapp.pokemonteam",
-    "pk": 1,
-    "fields": {
-        "pokemon_1_dex_id": 1,
-        "pokemon_2_dex_id": 4,
-        "pokemon_3_dex_id": 7,
-        "pokemon_4_dex_id": 10,
-        "pokemon_5_dex_id": 15,
-        "pokemon_6_dex_id": 25
-    }
-}, {
-    "model": "discordapp.pokemonteam",
-    "pk": 2,
-    "fields": {
-        "pokemon_1_dex_id": 59,
-        "pokemon_2_dex_id": 196,
-        "pokemon_3_dex_id": 145,
-        "pokemon_4_dex_id": 45,
-        "pokemon_5_dex_id": 9,
-        "pokemon_6_dex_id": 248
-    }
-}, {
-    "model": "discordapp.pokemonteam",
-    "pk": 3,
-    "fields": {
-        "pokemon_1_dex_id": 260,
-        "pokemon_2_dex_id": 264,
-        "pokemon_3_dex_id": 94,
-        "pokemon_4_dex_id": 181,
-        "pokemon_5_dex_id": 380,
-        "pokemon_6_dex_id": 59
-    }
-}, {
-    "model": "discordapp.pokemonteam",
-    "pk": 4,
-    "fields": {
-        "pokemon_1_dex_id": 149,
-        "pokemon_2_dex_id": 248,
-        "pokemon_3_dex_id": 289,
-        "pokemon_4_dex_id": 282,
-        "pokemon_5_dex_id": 94,
-        "pokemon_6_dex_id": 6
-    }
-}, {
-    "model": "discordapp.pokemonteam",
-    "pk": 5,
-    "fields": {
-        "pokemon_1_dex_id": 257,
-        "pokemon_2_dex_id": 130,
-        "pokemon_3_dex_id": 282,
-        "pokemon_4_dex_id": 354,
-        "pokemon_5_dex_id": 254,
-        "pokemon_6_dex_id": 306
-    }
-}, {
-    "model": "discordapp.pokemonteam",
-    "pk": 6,
-    "fields": {
-        "pokemon_1_dex_id": 587,
-        "pokemon_2_dex_id": 330,
-        "pokemon_3_dex_id": 184,
-        "pokemon_4_dex_id": 609,
-        "pokemon_5_dex_id": 407,
-        "pokemon_6_dex_id": 428
-    }
-}, {
-    "model": "discordapp.socialmedia",
-    "pk": 1,
-    "fields": {
-        "youtube_url": null,
-        "twitter_url": "https://twitter.com/GuideonBerry",
-        "twitch_url": "http://www.twitch.tv/squidiron",
-        "soundcloud_url": null,
-        "favorite_switch_clip_url": null
-    }
-}, {
-    "model": "discordapp.socialmedia",
-    "pk": 2,
-    "fields": {
-        "youtube_url": "https://www.youtube.com/channel/UCNDiJ1Rczzw-IQGA01eB97A",
-        "twitter_url": null,
-        "twitch_url": "https://www.twitch.tv/stringerjazz",
-        "soundcloud_url": null,
-        "favorite_switch_clip_url": "https://www.youtube.com/watch?v=j87WEf9mBYo"
-    }
-}, {
-    "model": "discordapp.socialmedia",
-    "pk": 3,
-    "fields": {
-        "youtube_url": "https://www.youtube.com/channel/UCTfrzXXW_dNTYaCQBEFR6dg",
-        "twitter_url": "https://twitter.com/b3llydrum",
-        "twitch_url": "https://www.twitch.tv/b3llydrum",
-        "soundcloud_url": "https://soundcloud.com/seikenmusic",
-        "favorite_switch_clip_url": "https://www.youtube.com/watch?v=_6qapYbpoe4"
-    }
-}, {
-    "model": "discordapp.socialmedia",
-    "pk": 4,
-    "fields": {
-        "youtube_url": null,
-        "twitter_url": "https://twitter.com/jzilch280",
-        "twitch_url": "https://www.twitch.tv/wacky280",
-        "soundcloud_url": null,
-        "favorite_switch_clip_url": null
-    }
-}, {
-    "model": "discordapp.socialmedia",
-    "pk": 5,
-    "fields": {
-        "youtube_url": "https://www.youtube.com/channel/UCkqv_RscZNC3VboZAkpTMug",
-        "twitter_url": "https://twitter.com/kenny_maness",
-        "twitch_url": null,
-        "soundcloud_url": "https://soundcloud.com/kennymaness/my-shiny-teeth-and-me",
-        "favorite_switch_clip_url": null
-    }
-}, {
-    "model": "discordapp.socialmedia",
-    "pk": 6,
-    "fields": {
-        "youtube_url": null,
-        "twitter_url": "https://twitter.com/toastbae",
-        "twitch_url": "http://www.twitch.tv/toastjpeg",
-        "soundcloud_url": null,
-        "favorite_switch_clip_url": null
-    }
-}, {
     "model": "discordapp.member",
     "pk": 1,
     "fields": {
@@ -135,9 +9,7 @@
         "role": "Squid Kid",
         "bio": null,
         "favorite_nintendo_series": "Zelda",
-        "favorite_non_nintendo_series": null,
-        "pokemon_team_id": 1,
-        "social_media_id": 1
+        "favorite_non_nintendo_series": null
     }
 }, {
     "model": "discordapp.member",
@@ -150,9 +22,7 @@
         "role": "Zelda Lord",
         "bio": null,
         "favorite_nintendo_series": "The Legend of Zelda",
-        "favorite_non_nintendo_series": "Sly Cooper",
-        "pokemon_team_id": 2,
-        "social_media_id": 2
+        "favorite_non_nintendo_series": "Sly Cooper"
     }
 }, {
     "model": "discordapp.member",
@@ -165,9 +35,7 @@
         "role": "Collector Nerd",
         "bio": "I love collecting Switch games. I think I have like 80 games now? They are all my children. I have 80 children!",
         "favorite_nintendo_series": "Zelda!",
-        "favorite_non_nintendo_series": null,
-        "pokemon_team_id": 3,
-        "social_media_id": 3
+        "favorite_non_nintendo_series": null
     }
 }, {
     "model": "discordapp.member",
@@ -180,9 +48,7 @@
         "role": "Athletic Geek",
         "bio": null,
         "favorite_nintendo_series": "Zelda!!",
-        "favorite_non_nintendo_series": "Dark Souls",
-        "pokemon_team_id": 4,
-        "social_media_id": 4
+        "favorite_non_nintendo_series": "Dark Souls"
     }
 }, {
     "model": "discordapp.member",
@@ -195,9 +61,7 @@
         "role": "Chiptune Guy",
         "bio": null,
         "favorite_nintendo_series": "Pokemon",
-        "favorite_non_nintendo_series": "The Elder Scrolls",
-        "pokemon_team_id": 5,
-        "social_media_id": 5
+        "favorite_non_nintendo_series": "The Elder Scrolls"
     }
 }, {
     "model": "discordapp.member",
@@ -210,9 +74,7 @@
         "role": "Punchy Kid",
         "bio": "I only play fighting games 'cause I can't fight people in real life without consequences.",
         "favorite_nintendo_series": "Animal Crossing",
-        "favorite_non_nintendo_series": "Persona",
-        "pokemon_team_id": 6,
-        "social_media_id": 6
+        "favorite_non_nintendo_series": "Persona"
     }
 }, {
     "model": "discordapp.project",
@@ -264,6 +126,78 @@
         "project_role_description": "General participant on the channel. May also appear in every episode, or as a recurring guest. Does not necessarily direct the narrative of the videos."
     }
 }, {
+    "model": "discordapp.linkmemberpokemon",
+    "pk": 1,
+    "fields": {
+        "member_id": 1,
+        "pokemon_1_dex_id": 1,
+        "pokemon_2_dex_id": 4,
+        "pokemon_3_dex_id": 7,
+        "pokemon_4_dex_id": 10,
+        "pokemon_5_dex_id": 15,
+        "pokemon_6_dex_id": 25
+    }
+}, {
+    "model": "discordapp.linkmemberpokemon",
+    "pk": 2,
+    "fields": {
+        "member_id": 2,
+        "pokemon_1_dex_id": 59,
+        "pokemon_2_dex_id": 196,
+        "pokemon_3_dex_id": 145,
+        "pokemon_4_dex_id": 45,
+        "pokemon_5_dex_id": 9,
+        "pokemon_6_dex_id": 248
+    }
+}, {
+    "model": "discordapp.linkmemberpokemon",
+    "pk": 3,
+    "fields": {
+        "member_id": 3,
+        "pokemon_1_dex_id": 260,
+        "pokemon_2_dex_id": 264,
+        "pokemon_3_dex_id": 94,
+        "pokemon_4_dex_id": 181,
+        "pokemon_5_dex_id": 380,
+        "pokemon_6_dex_id": 59
+    }
+}, {
+    "model": "discordapp.linkmemberpokemon",
+    "pk": 4,
+    "fields": {
+        "member_id": 4,
+        "pokemon_1_dex_id": 149,
+        "pokemon_2_dex_id": 248,
+        "pokemon_3_dex_id": 289,
+        "pokemon_4_dex_id": 282,
+        "pokemon_5_dex_id": 94,
+        "pokemon_6_dex_id": 6
+    }
+}, {
+    "model": "discordapp.linkmemberpokemon",
+    "pk": 5,
+    "fields": {
+        "member_id": 5,
+        "pokemon_1_dex_id": 257,
+        "pokemon_2_dex_id": 130,
+        "pokemon_3_dex_id": 282,
+        "pokemon_4_dex_id": 354,
+        "pokemon_5_dex_id": 254,
+        "pokemon_6_dex_id": 306
+    }
+}, {
+    "model": "discordapp.linkmemberpokemon",
+    "pk": 6,
+    "fields": {
+        "member_id": 6,
+        "pokemon_1_dex_id": 587,
+        "pokemon_2_dex_id": 330,
+        "pokemon_3_dex_id": 184,
+        "pokemon_4_dex_id": 609,
+        "pokemon_5_dex_id": 407,
+        "pokemon_6_dex_id": 428
+    }
+}, {
     "model": "discordapp.linkmemberproject",
     "pk": 1,
     "fields": {
@@ -294,5 +228,119 @@
         "member_id": 5,
         "project_id": 5,
         "project_role": 1
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 5,
+    "fields": {
+        "member_id": 1,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 6,
+    "fields": {
+        "member_id": 2,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 7,
+    "fields": {
+        "member_id": 3,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 8,
+    "fields": {
+        "member_id": 4,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 9,
+    "fields": {
+        "member_id": 5,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 10,
+    "fields": {
+        "member_id": 6,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 1,
+    "fields": {
+        "member_id": 1,
+        "youtube_url": null,
+        "twitter_url": "https://twitter.com/GuideonBerry",
+        "twitch_url": "http://www.twitch.tv/squidiron",
+        "soundcloud_url": null,
+        "favorite_switch_clip_url": null
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 2,
+    "fields": {
+        "member_id": 2,
+        "youtube_url": "https://www.youtube.com/channel/UCNDiJ1Rczzw-IQGA01eB97A",
+        "twitter_url": null,
+        "twitch_url": "https://www.twitch.tv/stringerjazz",
+        "soundcloud_url": null,
+        "favorite_switch_clip_url": "https://www.youtube.com/watch?v=j87WEf9mBYo"
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 3,
+    "fields": {
+        "member_id": 3,
+        "youtube_url": "https://www.youtube.com/channel/UCTfrzXXW_dNTYaCQBEFR6dg",
+        "twitter_url": "https://twitter.com/b3llydrum",
+        "twitch_url": "https://www.twitch.tv/b3llydrum",
+        "soundcloud_url": "https://soundcloud.com/seikenmusic",
+        "favorite_switch_clip_url": "https://www.youtube.com/watch?v=_6qapYbpoe4"
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 4,
+    "fields": {
+        "member_id": 4,
+        "youtube_url": null,
+        "twitter_url": "https://twitter.com/jzilch280",
+        "twitch_url": "https://www.twitch.tv/wacky280",
+        "soundcloud_url": null,
+        "favorite_switch_clip_url": null
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 5,
+    "fields": {
+        "member_id": 5,
+        "youtube_url": "https://www.youtube.com/channel/UCkqv_RscZNC3VboZAkpTMug",
+        "twitter_url": "https://twitter.com/kenny_maness",
+        "twitch_url": null,
+        "soundcloud_url": "https://soundcloud.com/kennymaness/my-shiny-teeth-and-me",
+        "favorite_switch_clip_url": null
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 6,
+    "fields": {
+        "member_id": 6,
+        "youtube_url": null,
+        "twitter_url": "https://twitter.com/toastbae",
+        "twitch_url": "http://www.twitch.tv/toastjpeg",
+        "soundcloud_url": null,
+        "favorite_switch_clip_url": null
     }
 }]
