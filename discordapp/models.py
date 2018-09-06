@@ -156,16 +156,19 @@ class LinkMemberProject(models.Model):
     )
     member_id = models.ForeignKey(
         Member,
+        db_column="member_id",
         blank=False,
         null=False
     )
     project_id = models.ForeignKey(
         Project,
+        db_column="project_id",
         blank=False,
         null=False
     )
     project_role = models.ForeignKey(
         ProjectRole,
+        db_column="project_role_id",
         blank=False,
         null=False
     )

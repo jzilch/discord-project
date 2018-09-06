@@ -295,4 +295,52 @@
         "project_id": 5,
         "project_role": 1
     }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 5,
+    "fields": {
+        "member_id": 1,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 6,
+    "fields": {
+        "member_id": 2,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 7,
+    "fields": {
+        "member_id": 3,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 8,
+    "fields": {
+        "member_id": 4,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 9,
+    "fields": {
+        "member_id": 5,
+        "project_id": 2,
+        "project_role": 2
+    }
+}, {
+    "model": "discordapp.linkmemberproject",
+    "pk": 10,
+    "fields": {
+        "member_id": 6,
+        "project_id": 2,
+        "project_role": 2
+    }
 }]
