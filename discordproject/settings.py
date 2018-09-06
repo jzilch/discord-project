@@ -86,19 +86,19 @@ WSGI_APPLICATION = 'discordproject.wsgi.application'
 # PROD VARIABLE
 # uncomment to run on server
 # comment out the NON-PROD version
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'superfam',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'superfam',
+#     }
+# }
 
 # NON-PROD VARIABLE
 # Uncomment to run locally
 
-# DATABASES = {
-#     'default': dj_database_url.config()
-# }
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 
 # Password validation
