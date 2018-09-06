@@ -3,45 +3,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-# six dex numbers linked from the Member class
-class PokemonTeam(models.Model):
-    pokemon_team_id = models.AutoField(primary_key=True)
-    pokemon_1_dex_id = models.PositiveSmallIntegerField()
-    pokemon_2_dex_id = models.PositiveSmallIntegerField()
-    pokemon_3_dex_id = models.PositiveSmallIntegerField()
-    pokemon_4_dex_id = models.PositiveSmallIntegerField()
-    pokemon_5_dex_id = models.PositiveSmallIntegerField()
-    pokemon_6_dex_id = models.PositiveSmallIntegerField()
-
-    class Meta:
-        db_table = 'pokemon_teams'
-
-# url links to a Members social media pages
-class SocialMedia(models.Model):
-    social_media_id = models.AutoField(primary_key=True)
-    youtube_url = models.TextField(
-        blank=True,
-        null=True
-    )
-    twitter_url = models.TextField(
-        blank=True,
-        null=True
-    )
-    twitch_url = models.TextField(
-        blank=True,
-        null=True
-    )
-    soundcloud_url = models.TextField(
-        blank=True,
-        null=True
-    )
-    favorite_switch_clip_url = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    class Meta:
-        db_table = 'social_media'
 
 # members of the SuperFam
 class Member(models.Model):
@@ -86,25 +47,9 @@ class Member(models.Model):
         blank=True,
         null=True
     )
-    pokemon_team_id = models.ForeignKey(
-        PokemonTeam,
-        db_column='pokemon_team_id',
-        blank=True,
-        null=True,
-        db_index=True,
-        on_delete=models.PROTECT
-    )
-    social_media_id = models.ForeignKey(
-        SocialMedia,
-        db_column='social_media_id',
-        blank=True,
-        null=True,
-        db_index=True,
-        on_delete=models.PROTECT
-    )
     
     class Meta:
-        db_table = 'members'
+        db_table = 'all_members'
         unique_together = (('firstname', 'lastname'),)
 
 
@@ -120,12 +65,13 @@ class Project(models.Model):
         null=False
     )
     url = models.TextField(
+        # TODO - unique=True,  # when actual data is inserted
         blank=False,
         null=False
     )
 
     class Meta:
-        db_table = 'projects'
+        db_table = 'all_projects'
 
 
 # roles that a Member can play in a Project
@@ -145,11 +91,31 @@ class ProjectRole(models.Model):
     )
 
     class Meta:
-        db_table = 'project_roles'
+        db_table = 'all_project_roles'
         unique_together = (('project_role_name', 'project_role_description'))
 
 
-# associates Members with Projects in different roles
+# links a Member to pokemon team data
+class LinkMemberPokemon(models.Model):
+    link_member_pokemon_id = models.AutoField(primary_key=True)
+    member_id = models.ForeignKey(
+        Member,
+        db_column="member_id",
+        blank=False,
+        null=False
+    )
+    pokemon_1_dex_id = models.PositiveSmallIntegerField()
+    pokemon_2_dex_id = models.PositiveSmallIntegerField()
+    pokemon_3_dex_id = models.PositiveSmallIntegerField()
+    pokemon_4_dex_id = models.PositiveSmallIntegerField()
+    pokemon_5_dex_id = models.PositiveSmallIntegerField()
+    pokemon_6_dex_id = models.PositiveSmallIntegerField()
+
+    class Meta:
+        db_table = 'link_members_pokemon'
+
+
+# links a Member to Projects with a ProjectRole
 class LinkMemberProject(models.Model):
     link_member_project_id = models.AutoField(
         primary_key=True
@@ -176,3 +142,37 @@ class LinkMemberProject(models.Model):
     class Meta:
         db_table = 'link_members_projects'
         unique_together = (('member_id', 'project_id', 'project_role'))
+
+
+# links a Member to social media data
+class LinkMemberSocialMedia(models.Model):
+    social_media_id = models.AutoField(primary_key=True)
+    member_id = models.ForeignKey(
+        Member,
+        db_column="member_id",
+        blank=False,
+        null=False
+    )
+    youtube_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    twitter_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    twitch_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    soundcloud_url = models.TextField(
+        blank=True,
+        null=True
+    )
+    favorite_switch_clip_url = models.TextField(
+        blank=True,
+        null=True
+    )
+
+    class Meta:
+        db_table = 'link_members_social_media'
