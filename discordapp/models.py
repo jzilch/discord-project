@@ -106,3 +106,70 @@ class Member(models.Model):
     class Meta:
         db_table = 'members'
         unique_together = (('firstname', 'lastname'),)
+
+
+# youtube channels under the SuperFam banner
+class Project(models.Model):
+    project_id = models.AutoField(
+        primary_key=True
+    )
+    title = models.CharField(
+        max_length=100,
+        unique=True,
+        blank=False,
+        null=False
+    )
+    url = models.TextField(
+        blank=False,
+        null=False
+    )
+
+    class Meta:
+        db_table = 'projects'
+
+
+# roles that a Member can play in a Project
+class ProjectRole(models.Model):
+    project_role_id = models.AutoField(
+        primary_key=True
+    )
+    project_role_name = models.CharField(
+        max_length=100,
+        unique=True,
+        blank=False,
+        null=False
+    )
+    project_role_description = models.TextField(
+        blank=False,
+        null=True
+    )
+
+    class Meta:
+        db_table = 'project_roles'
+        unique_together = (('project_role_name', 'project_role_description'))
+
+
+# associates Members with Projects in different roles
+class LinkMemberProject(models.Model):
+    link_member_project_id = models.AutoField(
+        primary_key=True
+    )
+    member_id = models.ForeignKey(
+        Member,
+        blank=False,
+        null=False
+    )
+    project_id = models.ForeignKey(
+        Project,
+        blank=False,
+        null=False
+    )
+    project_role = models.ForeignKey(
+        ProjectRole,
+        blank=False,
+        null=False
+    )
+
+    class Meta:
+        db_table = 'link_members_projects'
+        unique_together = (('member_id', 'project_id', 'project_role'))

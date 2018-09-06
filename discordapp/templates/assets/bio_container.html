@@ -34,8 +34,9 @@
 
     <!-- member info -->
     <div class="member-info-container bio-section">
-        <p class="username-decoration">{{ member.username }}</p>
-        <p>{{ member.role }}<br>
+        <p>
+            <span class="username-decoration">{{ member.username }}</span> — {{ member.role }}
+        </p>
         {% if member.bio %}
         <em>"{{ member.bio }}"</em></p>
         {% endif %}
