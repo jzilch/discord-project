@@ -5,6 +5,7 @@
 
 {% block head %}
 {% include 'heads/main_head.html' %}
+{% include 'heads/home_head.html' %}
 {% endblock %}
 
 {% block header %}
@@ -12,6 +13,27 @@
 {% endblock %}
 
 {% block content %}
+<div class='container'>
+    <div class='row'>
+        <div class='col-xs-12 col-md-6'>
+            <div class='news-section home-section'>
+                {% include 'assets/home/news_section.html' %}
+            </div>
+        </div>
+
+        <div class='col-xs-12 col-md-6'>
+
+            <div class='latest-content-section home-section'>
+                {% include 'assets/home/latest_content_section.html' %}
+            </div>
+
+            <div class='livestream-section home-section'>
+                {% include 'assets/home/livestream_section.html' %}
+            </div>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block footer %}
