@@ -2,6 +2,8 @@
 
 .home-section {
     width: 100%;
+
+    margin-bottom: 20px;
 }
 .news-section {
     border: 1px dotted red;
@@ -11,21 +13,46 @@
     border: 1px dotted blue;
 }
 
+.latest-content {
+    width: 100%;
+    height: 312px;
+}
+
+.latest-content-title {
+    text-align: center;
+    padding: 10px 0px;
+
+    margin-bottom: 10px;
+
+    background-color: lightblue;
+}
+
 .livestream-section {
     border: 1px dotted green;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+}
+.news-section-title {
+    background-color: lightblue;
+}
+.latest-content-title {
+    background-color: lightblue;
+}
+.livestream-section-title {
+    background-color: lightblue;
 }
 
 #twitch-embed {
     border: 1px dotted purple;
 }
 
+/* TODO - make this work */
 .twitch-sticky {
     position: -webkit-sticky;
     position: sticky;
     bottom: 0px;
-}
-
-.latest-content {
-    width: 100%;
-    height: 312px;
 }
