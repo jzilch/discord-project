@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1zgu3==(21l04$kbfg13^o*510f01&6fjo0@fl)=@+o(v^y_(f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,24 +80,20 @@ WSGI_APPLICATION = 'discordproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# NOTE: Only one of the following instantiations of DATABASES should be uncommented at a time.
-# This is because one is for prod, and one is for non-prod
 
-# PROD VARIABLE
-# uncomment to run on server
-# comment out the NON-PROD version
+# NOTE: Only one of the following definitions of DATABASES should be uncommented at a time.
+
+# PROD VARIABLE (for server use)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'superfam',
-    }
+    'default': dj_database_url.config()
 }
 
-# NON-PROD VARIABLE
-# Uncomment to run locally
-
+# NON-PROD VARIABLE (for local use)
 # DATABASES = {
-#     'default': dj_database_url.config()
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'superfam',
+#     }
 # }
 
 
