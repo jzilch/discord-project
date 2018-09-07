@@ -160,7 +160,7 @@ def get_pokemon_team_by_username(username):
         member_pokemon = None
     except Exception:
         raise
-    
+
     return member_pokemon
 
 
