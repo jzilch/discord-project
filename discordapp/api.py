@@ -64,7 +64,7 @@ def get_member_by_username(username):
     else:
         try:
             # NOTE - Member.username is of the unicode type.
-            assert(isinstance(username, unicode) or isinstance(username, str))
+            assert(isinstance(username, str) or isinstance(username, bytes))
         except AssertionError:
             raise TypeError("get_member_by_username() must only take a string or unicode object. Given input was of type {}.".format(type(username)))
 
