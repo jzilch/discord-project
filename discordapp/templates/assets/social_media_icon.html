@@ -1,0 +1,9 @@
+{% load static %}
+<!-- TODO: update this to make it modular -->
+<a href="{{ social_media.youtube_url }}">
+    {% endif %}
+    <div class="{% if social_media.youtube_url %}has-youtube-link{% else %}no-social-media-link{% endif %} social-media-icon-container col-xs-6 col-md-3">
+        <i class="fa fa-youtube fa-2x"></i>
+        </div>
+    {% if social_media.youtube_url %}
+</a>

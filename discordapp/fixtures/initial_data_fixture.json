@@ -77,6 +77,19 @@
         "favorite_non_nintendo_series": "Persona"
     }
 }, {
+    "model": "discordapp.member",
+    "pk": 7,
+    "fields": {
+        "lastname": "Goessling",
+        "firstname": "Kevin",
+        "username": "nederlander",
+        "birthday": "1993-03-22",
+        "role": "Drum Beater",
+        "bio": null,
+        "favorite_nintendo_series": "The Legend of Zelda",
+        "favorite_non_nintendo_series": "Uncharted"
+    }
+}, {
     "model": "discordapp.project",
     "pk": 1,
     "fields": {
@@ -341,6 +354,17 @@
         "twitter_url": "https://twitter.com/toastbae",
         "twitch_url": "http://www.twitch.tv/toastjpeg",
         "soundcloud_url": null,
+        "favorite_switch_clip_url": null
+    }
+}, {
+    "model": "discordapp.linkmembersocialmedia",
+    "pk": 7,
+    "fields": {
+        "member_id": 7,
+        "youtube_url": null,
+        "twitter_url": null,
+        "twitch_url": null,
+        "soundcloud_url": "https://soundcloud.com/the-skagbyrds",
         "favorite_switch_clip_url": null
     }
 }]

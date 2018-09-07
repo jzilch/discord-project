@@ -156,12 +156,10 @@ def get_pokemon_team_by_username(username):
         member_pokemon = LinkMemberPokemon.objects.get(
             member_id=member.member_id
         )
-    except Exception as e:
-        print(e)
-        if str(e) == "'NoneType' object has no attribute 'member_id'":
-            member_pokemon = None
-        else:
-            raise
+    except ObjectDoesNotExist as odne:
+        member_pokemon = None
+    except Exception:
+        raise
     
     return member_pokemon
 
