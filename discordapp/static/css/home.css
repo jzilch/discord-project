@@ -8,6 +8,9 @@
 .news-section {
     /* border: 1px dotted red; */
 }
+.news-post-container {
+    border: 1px dotted red;
+}
 
 .latest-content-section {
     /* border: 1px dotted blue; */
