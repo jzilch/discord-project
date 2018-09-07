@@ -1,2 +1,4 @@
 <div class='section-title news-section-title'>News</div>
-{% include 'assets/home/news_post.html' %}
+{% for news_post in news_posts %}
+    {% include 'assets/home/news_post.html' %}
+{% endfor %}

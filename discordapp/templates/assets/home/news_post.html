@@ -1,4 +1,8 @@
 <div class='news-post-container'>
-    <div class='news-post-title'>Post Title</div>
-    <div class='news-post-content'>Post content</div>
+    <div class='news-post-title'>{{ news_post.title }}</div>
+    <div class='news-post-content'>{{ news_post.content }}</div>
+    <div class='news-post-date'>
+        {{ news_post.date_posted }}
+        {% if news_post.date_modified %}Modified: {{ news_post.date_modified }}{% endif %}
+    </div>
 </div>

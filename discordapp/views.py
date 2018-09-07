@@ -18,8 +18,18 @@ import json
 @csrf_protect
 def render_homepage(request):
 
+    new_news_post = NewsItem(title='buttz', content='content')
+    new_news_post.save()
+
+    print(new_news_post.date_posted)
+
+    news_posts = NewsItem.objects.all()
+    news_post_comments = NewsItemComment.objects.all()
+
     context = {
         "csrf": csrf,
+        "news_posts": news_posts,
+        "news_post_comments": news_post_comments,
     }
 
     return render(request, 'index.html', context)
