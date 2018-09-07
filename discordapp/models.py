@@ -4,6 +4,13 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 
+''' TODO:
+    - add User model
+        - replace a lot of functionality involving Member with User
+        - Member is NOT User, Member is a static datum representing content creators
+        - User is all users of the website, INCLUDING users present in Members
+'''
+
 
 # members of the SuperFam
 class Member(models.Model):
@@ -68,6 +75,12 @@ class NewsItem(models.Model):
         blank=True,
         null=False
     )
+    posted_by = models.ForeignKey(
+        Member,
+        default=None,
+        blank=False,
+        null=True
+    )
     date_posted = models.DateTimeField(
         editable=False,
         null=True
@@ -99,12 +112,6 @@ class NewsItemComment(models.Model):
     news_item_comment_id = models.AutoField(
         primary_key=True
     )
-    user_id = models.ForeignKey(
-        Member,  # TODO - replace with User when User model is created
-        blank=False,
-        null=True,
-        db_column="user_id",
-    )
     news_item_id = models.ForeignKey(
         NewsItem,
         blank=False,
@@ -115,10 +122,22 @@ class NewsItemComment(models.Model):
         blank=False,
         null=True
     )
+    posted_by = models.ForeignKey(
+        Member,  # TODO - replace with User when User model is created
+        default=None,  # TODO - make this True so a User musy always be attached
+        blank=False,
+        null=True,
+        db_column="posted_by"
+    )
     date_posted = models.DateTimeField(
         editable=False,
     )
-    date_modified = models.DateTimeField()
+    date_modified = models.DateTimeField(
+        null=True
+    )
+    modified = models.BooleanField(
+        default=False,
+    )
 
     # custom save() method in lieu of .auto_now()
     # https://stackoverflow.com/a/1737078
@@ -126,7 +145,8 @@ class NewsItemComment(models.Model):
         ''' on save, update timestamps '''
         if not self.news_item_comment_id:
             self.date_posted = timezone.localtime(timezone.now())
-        self.date_modified = timezone.localtime(timezone.now())
+        if self.modified:
+            self.date_modified = timezone.localtime(timezone.now())
         return super(NewsItemComment, self).save(*args, **kwargs)
 
     class Meta:

@@ -3,13 +3,35 @@
 .home-section {
     width: 100%;
 
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+}
+.section-title {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    background-color: lightblue;
 }
 .news-section {
     /* border: 1px dotted red; */
 }
 .news-post-container {
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
+
+    margin: 5px 0px;
+    padding: 15px 25px;
+}
+.news-post-title {
+}
+.news-post-content {
+    /* border: 1px dotted blue; */
+    margin-left: 5px;
+    padding: 5px;
+}
+.news-post-date-posted {
+    font-size: 0.7em;
+    color: gray;
+    margin-top: 5px;
 }
 
 .latest-content-section {
@@ -20,7 +42,6 @@
     width: 100%;
     height: 312px;
 }
-
 .latest-content-title {
     text-align: center;
     padding: 10px 0px;
@@ -34,20 +55,6 @@
     /* border: 1px dotted green; */
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 10px;
-    padding: 10px 0px;
-}
-.news-section-title {
-    background-color: lightblue;
-}
-.latest-content-title {
-    background-color: lightblue;
-}
-.livestream-section-title {
-    background-color: lightblue;
-}
 
 #twitch-embed {
     /* border: 1px dotted purple; */

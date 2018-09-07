@@ -38,7 +38,9 @@ def get_member_by_username(username):
         Return a Member object based on a provided username.
 
     Params:
-        - username (string): username of Member object to return.
+        - username (String/Member):
+            - username of Member object to return.
+            - may be String or Member object.
 
     Return values:
         Intended:
@@ -47,7 +49,7 @@ def get_member_by_username(username):
             - ValueError: username parameter does not exist.
             - Other Error:
                 - unexpected error occured querying the Member object.
-    
+
     Function:
         Step 1.
             - validate username parameter.
@@ -91,8 +93,8 @@ def get_members(sort_by="member_id", amount=None):
         Return a list of any number of Member objects sorted by member_id or by another column.
 
     Params:
-        - sort_by (str): column by which to sort the Member list. Defaults to primary key "member_id".
-        - amount (int): number of members to retrieve.
+        - sort_by (String): column by which to sort the Member list. Defaults to primary key "member_id".
+        - amount (Integer): number of members to retrieve.
 
     Return values:
         Intended:
@@ -129,7 +131,7 @@ def get_pokemon_team_by_username(username):
         Returns LinkMemberPokemon object associated with a given username.
     
     Params:
-        - username (str): username of Member object whose LinkMemberPokemon object to return.
+        - username (String): username of Member object whose LinkMemberPokemon object to return.
 
     Return values:
         Intended:
@@ -307,15 +309,15 @@ def modify_news_item(user, news_item_id, update_text):
     user = get_member_by_username(user)
 
     # Step 2. validate news_item_id input
+    if isinstance(news_item_id, NewsItem):
+        news_item_id = news_item_id.news_item_id
     try:
         news_item_id = int(news_item_id)
     except ValueError as ve:
-        if str(ve) == "invalid literal for int() with base 10: \'{}\'".format(news_item_id):
-            raise ValueError("modify_news_item(news_item_id) parameter must be castable to an int.")
-        else:
-            raise ValueError("Unknown ValueError occurred in modify_news_item().")
+        print(ve)
+        raise
     except Exception:
-        raise Exception("Unknown Exception occurred in modify_news_item().")
+        raise
 
     # Step 3. validate NewsItem exists with news_item_id
     try:
@@ -331,3 +333,34 @@ def modify_news_item(user, news_item_id, update_text):
     news_item.save()
 
     return True
+
+
+
+def add_news_item(user, title, content):
+    '''
+    Purpose:
+        Add a NewsItem object to the database.
+    
+    Params:
+        - user (Member/String):
+            - User who is adding the NewsItem
+        - title (String):
+            - title of the news post
+        - content (String):
+            - content of the news post
+
+    Return values:
+        Intended:
+            - Boolean (True=success, False=failure)
+        Erroneous:
+            - none so far
+
+    Function:
+        Step 1.
+            - query for all NewsItem objects sorted by date posted ascending
+    TODO:
+    '''
+
+    user = get_member_by_username(user)
+
+    # validate data

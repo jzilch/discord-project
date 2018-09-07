@@ -65,6 +65,7 @@ def render_about_member(request, member_name):
 
     return render(request, 'about_member.html', context)
 
+
 @csrf_protect
 def render_our_stuff(request):
 
