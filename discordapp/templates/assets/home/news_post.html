@@ -2,7 +2,21 @@
     <div class='news-post-title'>{{ news_post.title }}</div>
     <div class='news-post-content'>{{ news_post.content }}</div>
     <div class='news-post-date'>
-        {{ news_post.date_posted }}
-        {% if news_post.date_modified %}Modified: {{ news_post.date_modified }}{% endif %}
+
+        <div class='news-post-date-posted'>
+            Posted: {{ news_post.date_posted }}
+        </div>
+
+        {% if modification_response %}
+            <div class='news-post-modification-alert'>
+                {% if news_post.modified %}Modified comment{% endif %}
+            </div>
+        {% endif %}
+
+        {% if news_post.date_modified %}
+            <div class='news-post-modification-date'>
+                Modified: {{ news_post.date_modified }}
+            </div>
+        {% endif %}
     </div>
 </div>

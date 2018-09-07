@@ -72,7 +72,12 @@ class NewsItem(models.Model):
         editable=False,
         null=True
     )
-    date_modified = models.DateTimeField()
+    date_modified = models.DateTimeField(
+        null=True
+    )
+    modified = models.BooleanField(
+        default=False,
+    )
 
     # custom save() method in lieu of .auto_now()
     # https://stackoverflow.com/a/1737078
@@ -80,7 +85,8 @@ class NewsItem(models.Model):
         ''' on save, update timestamps '''
         if not self.news_item_id:
             self.date_posted = timezone.localtime(timezone.now())
-        self.date_modified = timezone.localtime(timezone.now())
+        if self.modified:
+            self.date_modified = timezone.localtime(timezone.now())
         return super(NewsItem, self).save(*args, **kwargs)
 
     class Meta:

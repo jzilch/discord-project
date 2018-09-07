@@ -1,3 +1,11 @@
+<!-- for texting content updates -->
+<form method='post'>{% csrf_token %}
+    <div class='section-title news-section-title'>
+        <input type='submit' name='news-item-update-value' value='click to update first post'>
+    </div>
+</form>
+
+<!-- endfor -->
 <div class='section-title news-section-title'>News</div>
 {% for news_post in news_posts %}
     {% include 'assets/home/news_post.html' %}

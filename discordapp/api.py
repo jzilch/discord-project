@@ -19,6 +19,8 @@ Summary:
     - get_pokemon_team_by_username()
     - get_social_media_by_username()
     - get_member_info()
+    - get_news_items()
+    - get_news_item_comments()
 
 TODO:
     Important:
@@ -94,7 +96,7 @@ def get_members(sort_by="member_id", amount=None):
 
     Return values:
         Intended:
-            - List[Member] object
+            - QuerySet[Member] object (iterable and list-like)
     
     Function:
         Step 1.
@@ -249,3 +251,83 @@ def get_member_info(username, info_type):
         )
 
     return member_info_link
+
+
+def get_news_items():
+    '''
+    Purpose:
+        Returns all NewsItem objects from the database.
+    
+    Params:
+        - none so far
+
+    Return values:
+        Intended:
+            - QuerySet[NewsItem] object (iterable and list-like)
+        Erroneous:
+            - none so far
+
+    Function:
+        Step 1.
+            - query for all NewsItem objects sorted by date posted ascending
+    TODO:
+    '''
+
+    # Step 1. query for all NewsItem objects sorted by date posted ascending
+    news_items = NewsItem.objects.order_by("-date_posted")
+
+    return news_items
+
+
+def modify_news_item(user, news_item_id, update_text):
+    '''
+    Purpose:
+        Update a NewsItem objects content attribute with update_text parameter and log the result.
+    
+    Params:
+        - user (Member/String):
+            - Member object that initiated the NewsItem update.
+        - news_item_id (String/Int):
+            - ID of NewsItem whose content should be updated.
+        - update_text (String):
+            - updated version of the text to be assigned to the content attribute of the given NewsItem object.
+
+    Return values:
+        Intended:
+            - Boolean (True=success, False=failure)
+        Erroneous:
+            - none so far
+
+    Function:
+        Step 1.
+            - 
+    TODO:
+    '''
+
+    user = get_member_by_username(user)
+
+    # Step 2. validate news_item_id input
+    try:
+        news_item_id = int(news_item_id)
+    except ValueError as ve:
+        if str(ve) == "invalid literal for int() with base 10: \'{}\'".format(news_item_id):
+            raise ValueError("modify_news_item(news_item_id) parameter must be castable to an int.")
+        else:
+            raise ValueError("Unknown ValueError occurred in modify_news_item().")
+    except Exception:
+        raise Exception("Unknown Exception occurred in modify_news_item().")
+
+    # Step 3. validate NewsItem exists with news_item_id
+    try:
+        news_item = NewsItem.objects.get(news_item_id=news_item_id)
+    except ObjectDoesNotExist as odne:
+        raise ObjectDoesNotExist("Given news_item_id does not exist on a NewsItem object.")
+    except Exception:
+        raise Exception("Unknown Exception occurred in modify_news_item().")
+
+    # update the NewsItem object and save
+    news_item.content = update_text
+    news_item.modified = True
+    news_item.save()
+
+    return True

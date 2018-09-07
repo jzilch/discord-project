@@ -18,12 +18,7 @@ import json
 @csrf_protect
 def render_homepage(request):
 
-    new_news_post = NewsItem(title='buttz', content='content')
-    new_news_post.save()
-
-    print(new_news_post.date_posted)
-
-    news_posts = NewsItem.objects.all()
+    news_posts = get_news_items()
     news_post_comments = NewsItemComment.objects.all()
 
     context = {
@@ -78,3 +73,32 @@ def render_our_stuff(request):
     }
 
     return render(request, 'our_stuff.html', context)
+
+
+@csrf_protect
+def modify_news_post(request):
+
+    # TODO -- this will always return False until proper request data is given
+
+    # gather data from user request
+    try:
+        user = get_member_by_username("bellydrum")
+        news_item_id = request.POST['news-item-id']
+        update_text = request.POST['news-item-update-value']
+
+        try:
+            modification_response = modify_news_item(
+                user,
+                news_item_id,
+                update_text
+            )
+
+        except Exception:
+            print("Exception occurred in api.modify_news_item().")
+            modification_response = False
+
+    except KeyError:
+        print("KeyError in views.modify_news_post().")
+        modification_response = False
+
+    return modification_response
