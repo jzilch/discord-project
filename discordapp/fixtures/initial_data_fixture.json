@@ -90,6 +90,50 @@
         "favorite_non_nintendo_series": "Uncharted"
     }
 }, {
+    "model": "discordapp.newsitem",
+    "pk": 1,
+    "fields": {
+        "title": "test post title",
+        "content": "Yo! This is the content for the first test post in the news section of the website. Shit's still getting formatted and everything, but hey, here it is. Woo!",
+        "posted_by": 3,
+        "date_posted": "2018-09-07T20:44:05.392Z",
+        "date_modified": null,
+        "modified": false
+    }
+}, {
+    "model": "discordapp.newsitem",
+    "pk": 2,
+    "fields": {
+        "title": "another test post title",
+        "content": "Here's another post that's just a test. What uuuuuuup",
+        "posted_by": 3,
+        "date_posted": "2018-09-07T20:45:02.677Z",
+        "date_modified": null,
+        "modified": false
+    }
+}, {
+    "model": "discordapp.newsitem",
+    "pk": 3,
+    "fields": {
+        "title": "another test post title",
+        "content": "This is an updated text field, using the modify_news_item() function in the API. The timestamp below this text should indicate this!",
+        "posted_by": 3,
+        "date_posted": "2018-09-07T20:45:22.978Z",
+        "date_modified": "2018-09-07T20:55:15.138Z",
+        "modified": true
+    }
+}, {
+    "model": "discordapp.newsitem",
+    "pk": 4,
+    "fields": {
+        "title": "another test post title",
+        "content": "The timestamp below this text field should indicate this was modified as well.",
+        "posted_by": 3,
+        "date_posted": "2018-09-07T20:45:32.090Z",
+        "date_modified": "2018-09-07T20:58:48.397Z",
+        "modified": true
+    }
+}, {
     "model": "discordapp.project",
     "pk": 1,
     "fields": {
