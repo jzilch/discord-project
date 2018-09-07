@@ -4,7 +4,7 @@
     <div class='news-post-date'>
 
         <div class='news-post-date-posted'>
-            Posted by {{ news_post.posted_by.username }} on {{ news_post.date_posted }}
+            Posted by <a class='news-post-posted-by-link' href="{% url 'about_member' news_post.posted_by.username %}">{{ news_post.posted_by.username }}</a> on {{ news_post.date_posted }}
             {% if news_post.date_modified %}
             <span class='news-post-modification-date'> / Modified on {{ news_post.date_modified }}</span>
             {% endif %}

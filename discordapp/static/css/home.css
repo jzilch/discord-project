@@ -33,6 +33,15 @@
     color: gray;
     margin-top: 5px;
 }
+.news-post-posted-by-link {
+    color: gray;
+}
+.news-post-posted-by-link:hover {
+    color: gray;
+}
+.news-post-posted-by-link:visited {
+    color: gray;
+}
 
 .latest-content-section {
     /* border: 1px dotted blue; */
