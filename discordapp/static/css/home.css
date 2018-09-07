@@ -6,11 +6,11 @@
     margin-bottom: 20px;
 }
 .news-section {
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
 }
 
 .latest-content-section {
-    border: 1px dotted blue;
+    /* border: 1px dotted blue; */
 }
 
 .latest-content {
@@ -28,7 +28,7 @@
 }
 
 .livestream-section {
-    border: 1px dotted green;
+    /* border: 1px dotted green; */
 }
 
 .section-title {
@@ -47,7 +47,7 @@
 }
 
 #twitch-embed {
-    border: 1px dotted purple;
+    /* border: 1px dotted purple; */
 }
 
 /* TODO - make this work */
@@ -60,6 +60,8 @@
 
 /****************** RESPONSIVE CSS ******************/
 
-@media only screen and (max-width: 991px) {
-    
+@media only screen and (max-width: 600px) {
+    .latest-content {
+        height: 222px !important;
+    }
 }
