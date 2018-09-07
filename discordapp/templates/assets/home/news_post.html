@@ -4,17 +4,13 @@
     <div class='news-post-date'>
 
         <div class='news-post-date-posted'>
-            Posted by {{ news_post.user.username }} on {{ news_post.date_posted }}
-
+            Posted by {{ news_post.posted_by.username }} on {{ news_post.date_posted }}
+            {% if news_post.date_modified %}
+            <span class='news-post-modification-date'> / Modified on {{ news_post.date_modified }}</span>
+            {% endif %}
             {% if modification_response %}
             <div class='news-post-modification-alert'>
                 {% if news_post.modified %}Modified comment{% endif %}
-            </div>
-            {% endif %}
-
-            {% if news_post.date_modified %}
-            <div class='news-post-modification-date'>
-                Modified on {{ news_post.date_modified }}
             </div>
             {% endif %}
         </div>
