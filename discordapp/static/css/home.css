@@ -18,8 +18,8 @@
 .news-post-container {
     /* border: 1px dotted red; */
 
-    margin: 5px 0px;
-    padding: 15px 25px;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 35px 25px;
 }
 .news-post-title {
 }
